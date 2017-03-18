@@ -3,3 +3,7 @@
 	name = Miles Frain
 [core]
 	editor = vim
+[alias]
+    dt = difftool
+    one = log --oneline --decorate
+    uno = status -uno

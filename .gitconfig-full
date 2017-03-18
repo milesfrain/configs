@@ -1,0 +1,27 @@
+[user]
+	email = miles.frain@colorado.edu
+	name = Miles Frain
+[core]
+	editor = vim
+	pager = less -FXRS
+[color]
+	ui = auto
+[diff]
+	tool = vimdiff
+	guitool = meld
+	submodule = log
+[difftool]
+	prompt = false
+[alias]
+	dt = difftool
+	one = log --oneline --decorate
+	uno = status -uno
+[merge]
+	tool = mymeldadv
+	trustexitcode = false
+[mergetool "mymeld"]
+	cmd = meld "$LOCAL" "$MERGED" "$REMOTE"
+[mergetool "mymeldadv"]
+	cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
+[format]
+	pretty = medium
