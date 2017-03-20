@@ -7,3 +7,4 @@
     dt = difftool
     one = log --oneline --decorate
     uno = status -uno
+    all = log --branches --remotes --tags --graph --oneline --decorate
