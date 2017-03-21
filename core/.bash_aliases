@@ -1,6 +1,13 @@
 # Disable ctrl-s suspend
 stty -ixon
 
+# Show directories in purple
+LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+
+# Show all history in less
+# Not sure why 1 is giving all lines, but works for me
+alias hist='history 1 | less'
+
 fvi () {
     find_result=$(find . -name "*$1*")
     num_matches=$(echo "$find_result" | wc -w)
