@@ -45,12 +45,12 @@ fgplc () {
 }
 
 fgc () {
-    find -regex '.*\.\(c\|cpp\|h\|x\|cxx\)' -exec grep -i "$1" -Hn --color {} \;
+    find -regex '.*\.\(c\|cpp\|h\|x\|cxx\|cc\|hpp\)' -exec grep -i "$1" -Hn --color {} \;
 }
 
 #case sensitive
 fgcc () {
-    find -regex '.*\.\(c\|cpp\|h\|x\|cxx\)' -exec grep "$1" -Hn --color {} \;
+    find -regex '.*\.\(c\|cpp\|h\|x\|cxx\|cc\|hpp\)' -exec grep "$1" -Hn --color {} \;
 }
 
 typesize () {
