@@ -70,6 +70,9 @@ noremap U <c-r>
 "map <C-r> :echo "Ctrl-R is unbound"<CR> "not sure what I want to do with this yet
 map <C-r> :source ~/.vimrc<CR> " Reload config
 
+" Map ctrl-C to escape in insert mode - allows block insert to apply
+inoremap <C-c> <Esc>
+
 "folding - doesn't work well for GNU block style with openening brace on
 "newline
 "set foldmethod=syntax
@@ -122,9 +125,16 @@ if has("cscope")
     " show msg when any other cscope db added
     set cscopeverbose
 
+    " Refresh database
+    map <F5> :!cscope -b<CR>:cs reset<CR><CR>
 
-    """"""""""""" My cscope/vim key mappings
-    "
+    """"""""""""" cscope/vim key mappings
+
+    "          Leader options
+    " Ctrl-Space       horizontal split for result
+    " Ctrl-Space-Space   vertical split for result
+    " Ctrl--   Result in same window
+
     " The following maps all invoke one of the following cscope search types:
     "
     "   's'   symbol: find all references to the token under cursor
