@@ -49,6 +49,9 @@ set number
 :highlight ExtraWhitespace ctermbg=red
 :match ExtraWhitespace /\s\+$/
 
+" trim command to remove trailing whitespace
+command! Trim :%s/\s\+$//e
+
 " Create newlines
 " Jump cluttering variant
 nmap oo m`o<Esc>``

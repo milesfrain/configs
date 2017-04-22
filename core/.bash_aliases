@@ -75,3 +75,9 @@ typesize () {
         find . -name "*${ft}" -exec du -bcsh '{}' + | tail -1 | sed 's/\stotal//'
     done
 }
+
+# Produces sorted list of duplicated basenames in tree.
+# Useful for finding common files to ignore
+namecount() {
+    find . -type f -printf "%f\n" | sort | uniq -cd | sort -n
+}
