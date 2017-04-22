@@ -1,10 +1,23 @@
 # Disable ctrl-s suspend
 stty -ixon
 
+# Notes on colors
+# http://www.bigsoft.co.uk/blog/index.php/2008/04/11/configuring-ls_colors
+# Can print defaults with 'dircolors' command
+
+#Note, adding some extra colons before and after option for safety
 # Show directories in purple
 LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 
+#Show "other_writable" directories the same (without green background)
+LS_COLORS=$LS_COLORS:'ow=0;35:' ; export LS_COLORS
+
+# Also show colors with grep
+alias grep='grep --color=auto'
+
 # Show all history in less
+# This is a centos workaround.
+# 'history' shows all lines as expected in ubuntu
 # Not sure why 1 is giving all lines, but works for me
 alias hist='history 1 | less'
 
