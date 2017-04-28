@@ -24,21 +24,23 @@ alias hist='history 1 | less'
 fvi () {
     find_result=$(find . -name "*$1*")
     num_matches=$(echo "$find_result" | wc -w)
-
-    if [ $num_matches == 0 ]
+    if [ $num_matches = 0 ]
     then
         # no matches
         echo "cannot find $1"
-    elif [ $num_matches == 1 ]
+    elif [ $num_matches = 1 ]
     then
         # single match
-        ${EDITOR:-vi} $find_result
+        ${EDITOR:-vim} $find_result
     else
         # multiple matches
         local PS3="Choose a file to edit: "
-        select opt in $find_result
+        #select opt in $find_result
+        # The below fix is necessary for zsh avoid treating list of results as single blob.
+        # See http://zsh.sourceforge.net/FAQ/zshfaq03.html
+        select opt in ${=find_result}
         do
-            ${EDITOR:-vi} "$opt"
+            ${EDITOR:-vim} "$opt"
             break
         done
     fi
@@ -46,6 +48,10 @@ fvi () {
 
 epoch () {
     date --reference=$1 +%s
+}
+
+rgrep () {
+    grep -r "$1" . --color
 }
 
 fgpl () {
