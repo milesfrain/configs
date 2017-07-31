@@ -153,49 +153,52 @@ if has("cscope")
     "   'd'   called: find functions that function under cursor calls
     "
 
-" Workaround functions to ignore timeout - stall forever
-" May want to mark as script scope, s: <SNR>
-" The ! allows resourcing without errors
-function! CscopeDash()
-    echom "Jump: sym, glob, call, txt, egrep, file, inc, calleD"
-    let char=getchar()
-    if type(char)==type(0) | let char=nr2char(char) | endif
+    " Workaround functions to ignore timeout - stall forever
+    " May want to mark as script scope, s: <SNR>
+    " The ! allows resourcing without errors
+    function! CscopeDash()
+        echom "Jump: sym, glob, call, txt, egrep, file, inc, calleD"
+        let char=getchar()
+        if type(char)==type(0) | let char=nr2char(char) | endif
 
-    if char is# 'i'
-        return ':cs find ' . char . ' ^' . expand("<cword>") . '$'
-    endif
-    return ':cs find ' . char . ' ' . expand("<cword>")
-endfunction
+        if char is# 'i'
+            return ':cs find ' . char . ' ^' . expand("<cword>") . '$'
+        endif
+        return ':cs find ' . char . ' ' . expand("<cword>")
+    endfunction
 
-nnoremap <expr> <C-_> CscopeDash() . "\<CR>"
-
-
-function! CscopeSpace()
-    echom "Jump: sym, glob, call, txt, egrep, file, inc, calleD"
-    let char=getchar()
-    if type(char)==type(0) | let char=nr2char(char) | endif
-
-    if char is# 'i'
-        return ':scs find ' . char . ' ^' . expand("<cword>") . '$'
-    endif
-    return ':scs find ' . char . ' ' . expand("<cword>")
-endfunction
-
-nnoremap <expr> <C-@> CscopeSpace() . "\<CR>"
+    nnoremap <expr> <C-_> CscopeDash() . "\<CR>"
 
 
-function! CscopeSpaceSpace()
-    echom "Jump: sym, glob, call, txt, egrep, file, inc, calleD"
-    let char=getchar()
-    if type(char)==type(0) | let char=nr2char(char) | endif
+    function! CscopeSpace()
+        echom "Jump: sym, glob, call, txt, egrep, file, inc, calleD"
+        let char=getchar()
+        if type(char)==type(0) | let char=nr2char(char) | endif
 
-    if char is# 'i'
-        return ':vert scs find ' . char . ' ^' . expand("<cword>") . '$'
-    endif
-    return ':vert scs find ' . char . ' ' . expand("<cword>")
-endfunction
+        if char is# 'i'
+            return ':scs find ' . char . ' ^' . expand("<cword>") . '$'
+        endif
+        return ':scs find ' . char . ' ' . expand("<cword>")
+    endfunction
 
-nnoremap <expr> <C-@><C-@> CscopeSpaceSpace() . "\<CR>"
+    nnoremap <expr> <C-@> CscopeSpace() . "\<CR>"
+
+
+    function! CscopeSpaceSpace()
+        echom "Jump: sym, glob, call, txt, egrep, file, inc, calleD"
+        let char=getchar()
+        if type(char)==type(0) | let char=nr2char(char) | endif
+
+        if char is# 'i'
+            return ':vert scs find ' . char . ' ^' . expand("<cword>") . '$'
+        endif
+        return ':vert scs find ' . char . ' ' . expand("<cword>")
+    endfunction
+
+    nnoremap <expr> <C-@><C-@> CscopeSpaceSpace() . "\<CR>"
+
+else
+    echom "No CSCOPE"
 
 endif
 
