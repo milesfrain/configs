@@ -54,6 +54,15 @@ rgrep () {
     grep -r "$1" . --color
 }
 
+fgpy () {
+    find -regex '.*\.py' -exec grep -i "$1" -Hn --color {} \;
+}
+
+#case sensitive
+fgpyc () {
+    find -regex '.*\.py' -exec grep "$1" -Hn --color {} \;
+}
+
 fgpl () {
     find -regex '.*\.\(pm\|pl\)' -exec grep -i "$1" -Hn --color {} \;
 }
