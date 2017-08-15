@@ -42,6 +42,9 @@ set smartcase                   " ... unless they contain at least one capital l
 " workaround for tough to see dark blue comments in some terminals
 hi Comment ctermfg=DarkGreen
 
+" associate *.tsx with js filetype
+au BufRead,BufNewFile *.tsx setfiletype javascript
+
 " show line numbers
 set number
 
