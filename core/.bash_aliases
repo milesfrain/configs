@@ -54,6 +54,15 @@ rgrep () {
     grep -r "$1" . --color
 }
 
+fgtsx () {
+    find -regex '.*\.tsx' -exec grep -i "$1" -Hn --color {} \;
+}
+
+#case sensitive
+fgtsxc () {
+    find -regex '.*\.tsx' -exec grep "$1" -Hn --color {} \;
+}
+
 fgpy () {
     find -regex '.*\.py' -exec grep -i "$1" -Hn --color {} \;
 }
