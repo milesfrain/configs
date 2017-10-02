@@ -21,6 +21,9 @@ alias grep='grep --color=auto'
 # Not sure why 1 is giving all lines, but works for me
 alias hist='history 1 | less'
 
+# Todo - verify this works
+alias git-date="git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/"
+
 fvi () {
     find_result=$(find . -name "*$1*")
     num_matches=$(echo "$find_result" | wc -w)
@@ -31,6 +34,9 @@ fvi () {
     elif [ $num_matches = 1 ]
     then
         # single match
+        # add line to history
+        print -s ${EDITOR:-vim} $find_result
+        # open match
         ${EDITOR:-vim} $find_result
     else
         # multiple matches
@@ -40,7 +46,42 @@ fvi () {
         # See http://zsh.sourceforge.net/FAQ/zshfaq03.html
         select opt in ${=find_result}
         do
+            # add line to history
+            print -s ${EDITOR:-vim} "$opt"
+            # open match
             ${EDITOR:-vim} "$opt"
+            break
+        done
+    fi
+}
+
+# Run command on found file
+fop () {
+    find_result=$(find . -name "*$2*")
+    num_matches=$(echo "$find_result" | wc -w)
+    if [ $num_matches = 0 ]
+    then
+        # no matches
+        echo "cannot find $2"
+    elif [ $num_matches = 1 ]
+    then
+        # single match
+        # add line to history
+        print -s $1 $find_result
+        # open match
+        $1 $find_result
+    else
+        # multiple matches
+        local PS3="Choose a file to $1: "
+        #select opt in $find_result
+        # The below fix is necessary for zsh avoid treating list of results as single blob.
+        # See http://zsh.sourceforge.net/FAQ/zshfaq03.html
+        select opt in ${=find_result}
+        do
+            # add line to history
+            print -s $1 "$opt"
+            # open match
+            $1 "$opt"
             break
         done
     fi
@@ -52,6 +93,16 @@ epoch () {
 
 rgrep () {
     grep -r "$1" . --color
+}
+
+# Any extension
+fgext () {
+    find -regex '.*\.'"$1" -exec grep -i "$2" -Hn --color {} \;
+}
+
+#case sensitive
+fgextc () {
+    find -regex '.*\.'"$1" -exec grep "$2" -Hn --color {} \;
 }
 
 fgtsx () {
@@ -88,6 +139,10 @@ fgc () {
 #case sensitive
 fgcc () {
     find -regex '.*\.\(c\|cpp\|h\|x\|cxx\|cc\|hpp\)' -exec grep "$1" -Hn --color {} \;
+}
+
+pipreinstall () {
+     pip install --ignore-installed --no-deps "$@"
 }
 
 typesize () {
