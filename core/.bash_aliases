@@ -24,6 +24,8 @@ alias hist='history 1 | less'
 # Todo - verify this works
 alias git-date="git for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/"
 
+alias xclip="xclip -selection c"
+
 fvi () {
     find_result=$(find . -name "*$1*")
     num_matches=$(echo "$find_result" | wc -w)
