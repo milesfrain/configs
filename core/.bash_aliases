@@ -43,10 +43,10 @@ fvi () {
     else
         # multiple matches
         local PS3="Choose a file to edit: "
-        #select opt in $find_result
+        select opt in $find_result
         # The below fix is necessary for zsh avoid treating list of results as single blob.
         # See http://zsh.sourceforge.net/FAQ/zshfaq03.html
-        select opt in ${=find_result}
+        #select opt in ${=find_result}
         do
             # add line to history
             print -s ${EDITOR:-vim} "$opt"
@@ -94,7 +94,7 @@ epoch () {
 }
 
 rgrep () {
-    grep -r "$1" . --color
+    grep -r "$1" . --color=always
 }
 
 # Any extension
