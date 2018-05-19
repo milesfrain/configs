@@ -29,7 +29,7 @@ set showcmd                     " display incomplete commands
 
 "" Whitespace
 set nowrap                      " don't wrap lines
-set tabstop=5 shiftwidth=4      " a tab is two spaces (or set this to 4)
+set tabstop=4 shiftwidth=4      " a tab is two spaces (or set this to 4)
 set expandtab                   " use spaces, not tabs (optional)
 set backspace=indent,eol,start  " backspace through everything in insert mode
 
@@ -59,6 +59,11 @@ command! Trim :%s/\s\+$//e
 " Jump cluttering variant
 nmap oo m`o<Esc>``
 nmap OO m`O<Esc>``
+
+" Disable expand tab for makefiles
+" Could also manually use :set noet and :set et
+autocmd FileType make setlocal noexpandtab
+
 
 " usefull for oo commands
 " although only really needed if not typing o on next line
@@ -94,10 +99,11 @@ autocmd BufWinEnter *.* silent loadview
 "map <C-H> 5zh " Scroll 5 characters to the left
 
 " Disable auto commenting
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Less annoying auto c comments (subset of above)
-"au FileType c,cpp,cc,h setlocal comments-=:// comments+=f://
+" Disable auto commenting only line comments
+" But keep for block comments
+au FileType c,cpp,cc,h setlocal comments-=:// comments+=f://
 
 " apply .lst / .asm syntax highlighting to .rst files
 autocmd BufNewFile,BufRead *.rst   set syntax=asm
@@ -106,6 +112,8 @@ autocmd BufNewFile,BufRead *.rst   set syntax=asm
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" find . -name '*.c' -o -name '*.h' > cscope.files
 
 " This tests to see if vim was configured with the '--enable-cscope' option
 " when it was compiled.  If it wasn't, time to recompile vim...
@@ -120,15 +128,12 @@ if has("cscope")
     " if you want the reverse search order.
     set csto=0
 
-    " Only add cscope db if not already done through system config
-    if system("grep -q cscope /etc/vimrc")
-        " add any cscope database in current directory
-        if filereadable("cscope.out")
-            cs add cscope.out
-        " else add the database pointed to by environment variable
-        elseif $CSCOPE_DB != ""
-            cs add $CSCOPE_DB
-        endif
+    " add any cscope database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " else add the database pointed to by environment variable
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
     endif
 
     " show msg when any other cscope db added
@@ -159,7 +164,8 @@ if has("cscope")
     " Workaround functions to ignore timeout - stall forever
     " May want to mark as script scope, s: <SNR>
     " The ! allows resourcing without errors
-    function! CscopeDash()
+    "function! CscopeDash()
+    function! CscopeSpaceSpaceSpace()
         echom "Jump: sym, glob, call, txt, egrep, file, inc, calleD"
         let char=getchar()
         if type(char)==type(0) | let char=nr2char(char) | endif
@@ -170,7 +176,8 @@ if has("cscope")
         return ':cs find ' . char . ' ' . expand("<cword>")
     endfunction
 
-    nnoremap <expr> <C-_> CscopeDash() . "\<CR>"
+    " nnoremap <expr> <C-_> CscopeDash() . "\<CR>"
+    nnoremap <expr> <C-@><C-@><C-@> CscopeSpaceSpaceSpace() . "\<CR>"
 
 
     function! CscopeSpace()
