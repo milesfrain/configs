@@ -89,8 +89,8 @@ inoremap <C-c> <Esc>
 "set foldmethod=syntax
 
 " going to try a manual approach
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent! loadview
 
 " Horizontal scroll
 " Should get comfortable with the z commands instead
