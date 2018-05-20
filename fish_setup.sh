@@ -1,0 +1,1 @@
+set -U FZF_DEFAULT_OPTS $FZF_DEFAULT_OPTS --no-mouse
