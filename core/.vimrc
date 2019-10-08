@@ -1,5 +1,28 @@
+" note, also make symlink from ~/.config/nvim/init.vim
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
+
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'junegunn/vim-easy-align'
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'tomlion/vim-solidity'
+call plug#end()
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+let g:easy_align_delimiters = {
+\ '>': { 'pattern': '>>\|=>\|>' },
+\ '/': {
+\     'pattern':         '//\+\|/\*\|\*/',
+\     'delimiter_align': 'l',
+\     'ignore_groups':   ['!Comment']
+\   }
+\ }
 
 filetype plugin indent on    " required
 
@@ -108,6 +131,8 @@ au FileType c,cpp,cc,h setlocal comments-=:// comments+=f://
 " apply .lst / .asm syntax highlighting to .rst files
 autocmd BufNewFile,BufRead *.rst   set syntax=asm
 
+" apply messages format to *kern.log files (default for /var/log/*
+autocmd BufNewFile,BufReadPost *kern.log :set filetype=messages
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CSCOPE settings for vim

@@ -26,6 +26,8 @@ alias git-date="git for-each-ref --sort=-committerdate --format='%(refname:short
 
 alias xclip="xclip -selection c"
 
+alias o = "xdg-open"
+
 fvi () {
     find_result=$(find . -name "*$1*")
     num_matches=$(echo "$find_result" | wc -w)
