@@ -1,3 +1,5 @@
+# Todo, investigate antigen if plugins become annoying to manage
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -71,7 +73,13 @@ export FZF_BASE=~/.fzf
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting nvm fzf)
+plugins=(
+    fzf
+    git
+    nvm
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,5 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# fix light highlighting
+# https://github.com/zsh-users/zsh-autosuggestions/issues/229#issuecomment-300675586
+export TERM=xterm-256color
 
 alias o="xdg-open"
