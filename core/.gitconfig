@@ -3,7 +3,7 @@
 	name = Miles Frain
 [core]
 	editor = vim
-	pager = less -FXRS
+	pager = less -FXR
 [color]
 	ui = auto
 [diff]
