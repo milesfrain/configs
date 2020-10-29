@@ -79,6 +79,9 @@ set number
 " trim command to remove trailing whitespace
 command! Trim :%s/\s\+$//e
 
+" Allow ctrl-a to increment letters too (previously only numbers)
+set nrformats+=alpha
+
 " Create newlines
 " Jump cluttering variant
 nmap oo m`o<Esc>``
