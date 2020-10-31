@@ -7,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'tomlion/vim-solidity'
+Plug 'purescript-contrib/purescript-vim'
 call plug#end()
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)

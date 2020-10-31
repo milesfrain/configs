@@ -2,7 +2,7 @@
 	email = miles.frain@colorado.edu
 	name = Miles Frain
 [core]
-	editor = vim
+	editor = /usr/bin/vim
 	pager = less -FXR
 [color]
 	ui = auto
