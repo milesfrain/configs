@@ -118,4 +118,14 @@ alias o="xdg-open"
 alias p3="python3"
 if [ -e /home/miles/.nix-profile/etc/profile.d/nix.sh ]; then . /home/miles/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'
+# setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'
+
+# Keyboard repeat rate
+xset r rate 200 50
+
+# Working alt-shift-tab
+gsettings reset org.gnome.desktop.input-sources xkb-options
+
+function rename() {
+    rg $1 -l | xargs sed -i "s/$1/$2/g"
+}
