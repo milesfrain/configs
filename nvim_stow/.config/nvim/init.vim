@@ -1,4 +1,5 @@
 " vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
 set nocompatible
 filetype off
 set rtp+=~/.config/nvim/bundle/Vundle.vim
