@@ -1,6 +1,8 @@
 [user]
 	email = miles.frain@colorado.edu
 	name = Miles Frain
+[includeIf "gitdir:~/work/"]
+	path = ~/work/.gitconfig
 [core]
 	editor = /usr/bin/vim
 	pager = less -FXR
