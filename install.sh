@@ -1,12 +1,16 @@
 apt install \
-	git \
-	htop \
-	xcape \
-	xclip \
-	tmux \
-	zsh \
-	tlp \
-	meld
+  git \
+  htop \
+  xcape \
+  xclip \
+  tmux \
+  zsh \
+  tlp \
+  ripgrep \
+  build-essential \
+  mlocate \
+  units \
+  meld
 
 snap install code --classic
 #snap install slack --classic

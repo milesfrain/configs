@@ -1,3 +1,7 @@
+if !exists('g:vscode')
+  " Can move plugin stuff here if there are vscode incompatibilities
+endif
+
 " vundle
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
 set nocompatible
@@ -65,4 +69,8 @@ autocmd FileType make setlocal noexpandtab
 " usefull for oo commands
 " although only really needed if not typing o on next line
 set timeoutlen=200
+
+" Remember cursor position in every previously-opened file
+autocmd BufWinLeave * mkview
+autocmd BufWinEnter * silent! loadview
 
