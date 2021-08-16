@@ -86,6 +86,10 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# Fix omz slow pasting
+# https://github.com/zsh-users/zsh-syntax-highlighting/issues/295#issuecomment-214581607
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+
 # User configuration
 
 # This is automatically added by fzf install
