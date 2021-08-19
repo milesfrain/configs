@@ -140,3 +140,5 @@ gsettings reset org.gnome.desktop.input-sources xkb-options
 function rename() {
     rg $1 -l | xargs sed -i "s/$1/$2/g"
 }
+
+alias b="~/configs/scripts/bits.py"
