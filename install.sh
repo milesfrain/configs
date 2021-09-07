@@ -13,6 +13,8 @@ apt install \
   meld
 
 snap install code --classic
+snap install emacs --classic
+snap install alacritty --classic
 #snap install slack --classic
 
 # fzf
