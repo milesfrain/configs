@@ -24,6 +24,15 @@ Plugin 'tpope/vim-repeat'
 
 call vundle#end()
 
+" Note, loadview must be run first so as to not overwrite other settings in
+" this config
+" For troubleshooting what settings are getting overwritten, use `verb` e.g.:
+" verb set fo
+
+" Remember cursor position in every previously-opened file
+"autocmd BufWinLeave * mkview
+"autocmd BufWinEnter * silent! loadview
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
@@ -65,12 +74,21 @@ nmap OO m`O<Esc>``
 " Could also manually use :set noet and :set et
 autocmd FileType make setlocal noexpandtab
 
+" Disable auto commenting
+" Todo - needs more troubleshooting
+" https://vi.stackexchange.com/questions/9366/set-formatoptions-in-vimrc-is-being-ignored
+" For now, just :set fo-=o
+
+" autocmd FileType * setlocal formatoptions-=r formatoptions-=o
+autocmd FileType * setlocal formatoptions-=o
+" autocmd BufNewFile,BufRead * setlocal formatoptions-=r formatoptions-=o
+" set formatoptions-=r formatoptions-=o
+
+" Disable auto commenting only line comments
+" But keep for block comments
+" au FileType c,cpp,cc,h setlocal comments-=:// comments+=f://
 
 " usefull for oo commands
 " although only really needed if not typing o on next line
 set timeoutlen=200
-
-" Remember cursor position in every previously-opened file
-autocmd BufWinLeave * mkview
-autocmd BufWinEnter * silent! loadview
 
