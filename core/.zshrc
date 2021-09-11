@@ -142,3 +142,7 @@ function rename() {
 }
 
 alias b="~/configs/scripts/bits.py"
+
+# Run this additional setup script if it exists in the local directory
+if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
+
