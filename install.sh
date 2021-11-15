@@ -62,3 +62,6 @@ gsettings reset org.gnome.desktop.input-sources xkb-options
 sudo tlp-stat -b
 sudo tlp setcharge 60 80
 sudo tlp-stat -b
+
+curl https://sh.rustup.rs -sSf | sh
+cargo install watchexec-cli

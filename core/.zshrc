@@ -137,11 +137,36 @@ xset r rate 200 50
 # Working alt-shift-tab
 gsettings reset org.gnome.desktop.input-sources xkb-options
 
+alias b="~/configs/scripts/bits.py"
+
 function rename() {
     rg $1 -l | xargs sed -i "s/$1/$2/g"
 }
 
-alias b="~/configs/scripts/bits.py"
+function epoch () {
+    date --reference=$1 +%s
+}
+
+function pipreinstall () {
+     pip install --ignore-installed --no-deps "$@"
+}
+
+# Produces sorted list of duplicated basenames in tree.
+# Useful for finding common files to ignore
+function namecount() {
+    find . -type f -printf "%f\n" | sort | uniq -cd | sort -n
+}
+
+# todo - would be great to sort by size, rather than extension
+function typesize () {
+  ftypes=($(find . -type f | grep -E ".*\.[a-zA-Z0-9]*$" | sed -e 's/.*\(\.[a-zA-Z0-9]*\)$/\1/' | sort | uniq))
+
+    for ft in "${ftypes[@]}"
+    do
+        echo -ne "$ft\t"
+        find . -name "*${ft}" -exec du -bcsh {} \; | tail -1 | sed 's/\stotal//'
+    done
+}
 
 # Run this additional setup script if it exists in the local directory
 if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
