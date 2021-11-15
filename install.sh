@@ -10,6 +10,7 @@ sudo apt install \
   meld \
   mlocate \
   peek \
+  redshift \
   ripgrep \
   stow \
   tlp \
@@ -33,23 +34,29 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vund
 stow nvim_stow
 
 mkdir -p ~/software
+
+# neovim setup
 wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage -P ~/software
 chmod u+x ~/software/nvim.appimage
 sudo ln -s ~/software/nvim.appimage /usr/local/bin/nvim
 sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
 sudo ln -s /usr/local/bin/nvim /usr/local/bin/vi
-
-# fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+nvim +'PluginInstall' +qa
 
 # zsh
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
+# fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
 # show battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
+
+# Working alt-shift-tab
+gsettings reset org.gnome.desktop.input-sources xkb-options
 
 # set charge threshold
 sudo tlp-stat -b

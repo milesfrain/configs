@@ -127,7 +127,7 @@ export TERM=xterm-256color
 alias o="xdg-open"
 
 alias p3="python3"
-if [ -e /home/miles/.nix-profile/etc/profile.d/nix.sh ]; then . /home/miles/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'
 
