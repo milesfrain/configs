@@ -8,6 +8,7 @@ sudo apt install \
   git \
   htop \
   meld \
+  ncdu \
   mlocate \
   peek \
   redshift \
