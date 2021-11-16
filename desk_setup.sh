@@ -10,12 +10,18 @@ sudo apt upgrade
 sudo apt install \
   build-essential \
   meld \
+  minicom \
   peek \
   redshift \
   tlp \
   units \
   xcape \
   xclip
+
+sudo adduser $USER dialout
+sudo touch /etc/minicom/minirc.dfl
+chown chown root:dialout /etc/minicom/minirc.dfl
+chown chmod 664 /etc/minicom/minirc.dfl
 
 # Cannot merge into single line
 sudo snap install alacritty --classic
