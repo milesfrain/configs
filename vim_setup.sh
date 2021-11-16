@@ -2,6 +2,7 @@ set -xe
 
 mkdir -p ~/software
 
+# todo - conditionally skip some of these steps
 wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage -P ~/software
 chmod u+x ~/software/nvim.appimage
 sudo ln -s ~/software/nvim.appimage /usr/local/bin/nvim

@@ -28,16 +28,20 @@ stow alacritty
 stow code
 stow git
 
-# show battery percentage
+# Show battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 
 # Working alt-shift-tab
 gsettings reset org.gnome.desktop.input-sources xkb-options
 
-# set charge threshold
+# Set charge threshold
+# This may only work on thinkpads
 sudo tlp-stat -b
 sudo tlp setcharge 60 80
 sudo tlp-stat -b
 
+# Install rust
 curl https://sh.rustup.rs -sSf | sh
+
+# Install watchexec (via rust/cargo)
 cargo install watchexec-cli
