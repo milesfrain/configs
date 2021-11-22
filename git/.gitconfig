@@ -1,7 +1,8 @@
-[user]
-	email = miles.frain@colorado.edu
-	name = Miles Frain
+[include]
+	# Add a per-user email and name
+	path = ~/.gitconfig-custom
 [includeIf "gitdir:~/work/"]
+	# Add an alternate email
 	path = ~/work/.gitconfig
 [core]
 	editor = vim
@@ -10,15 +11,15 @@
 	ui = auto
 [diff]
 	tool = vimdiff
-	# for simple diffing with meld:
-	# git diff
+	# For simple diffing with meld:
+	# git difftool -g
+	# git difftool -t meld
 	# git difftool -t meld <commit> -- <file>
 	guitool = meld
 	submodule = log
 [difftool]
 	prompt = false
 [alias]
-	dt = difftool
 	one = log --oneline --decorate
 	uno = status -uno
 	all = log --branches --remotes --tags --decorate --oneline --graph
@@ -27,10 +28,25 @@
 [merge]
 	tool = mymeldadv
 	trustexitcode = false
-[mergetool "mymeld"]
-	cmd = meld $LOCAL $MERGED $REMOTE
 [mergetool "mymeldadv"]
+	# git difftool -t mymeldadv
+	#   BASE - Common ancestor of both changes
+	#   MERGED - Final version, what will be committed
+	#   LOCAL vs REMOTE are non-intuitive depending on pull/rebase/merge
+	#
+	#   For a pull:
+	#     LOCAL - Branch being rebased on (usually the upstream code)
+	#     REMOTE - My changes
+	#
+	#   For a rebase:
+	#     Todo
+	#
+	#   For a merge:
+	#     Todo
 	cmd = meld --diff $BASE $LOCAL --diff $BASE $REMOTE --diff $LOCAL $BASE $REMOTE --diff $LOCAL $MERGED $REMOTE
+[mergetool "mymeld"]
+	# Abbreviated version of mymeldadv (just shows the last 3-way comparison window)
+	cmd = meld $LOCAL $MERGED $REMOTE
 [format]
 	pretty = medium
 [filter "lfs"]

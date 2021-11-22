@@ -131,18 +131,18 @@ zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 # https://github.com/zsh-users/zsh-autosuggestions/issues/229#issuecomment-300675586
 export TERM=xterm-256color
 
-alias o="xdg-open"
+# Added by Nix installer
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 
-alias p3="python3"
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+# Convenience alias for opening files with assigned GUI. For example:
+# o some_document.pdf
+if type xdg-open; then alias o="xdg-open"; fi
 
-# setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'
+# Map capslock key to escape
+if type setxkbmap && type xcape; then setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'; fi
 
 # Keyboard repeat rate
-xset r rate 200 50
-
-# Working alt-shift-tab
-gsettings reset org.gnome.desktop.input-sources xkb-options
+if type xset; then xset r rate 200 50; fi
 
 alias b="~/configs/scripts/bits.py"
 
@@ -178,3 +178,8 @@ function typesize () {
 # Run this additional setup script if it exists in the local directory
 if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
 
+# todo - is this necessary after reboot?
+#
+#export NVM_DIR="$HOME/.config/nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

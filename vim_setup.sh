@@ -1,15 +1,28 @@
+#!/usr/bin/env sh
+
 set -xe
 
-mkdir -p ~/software
+if [ $(uname -m) = x86_64 ]; then
+  # Install latest appimage
+  NVIM_PATH=~/software/nvim.appimage
+  NVIM_DIR=$(dirname $NVIM_PATH)
+  mkdir -p $NVIM_DIR
+  wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage -P $NVIM_DIR
+  chmod u+x $NVIM_PATH
+  sudo update-alternatives --install /usr/bin/ex ex "${NVIM_PATH}" 110
+  sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
+  sudo update-alternatives --install /usr/bin/view view "${NVIM_PATH}" 110
+  sudo update-alternatives --install /usr/bin/vim vim "${NVIM_PATH}" 110
+  sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${NVIM_PATH}" 110
+else
+  # Install old version, but should be fine.
+  sudo apt install -y neovim
+  # This should automatically set up vi and vim alternatives.
+  # Might need old vim and vi to be uninstaled.
+  # Todo - could add a check and an error
+fi
 
-# todo - conditionally skip some of these steps
-wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage -P ~/software
-chmod u+x ~/software/nvim.appimage
-sudo ln -s ~/software/nvim.appimage /usr/local/bin/nvim
-sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
-sudo ln -s /usr/local/bin/nvim /usr/local/bin/vi
-
-# clear old configs:
+# clear old configs (for debugging or non-fresh setup):
 #rm -rf ~/.config/nvim/bundle
 #rm ~/.config/nvim
 

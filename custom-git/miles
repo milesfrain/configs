@@ -1,0 +1,7 @@
+# Example of custom per-user git configuration.
+
+# cp custom-git/miles ~/.gitconfig-custom
+
+[user]
+	name = Miles Frain
+	email = miles.frain@colorado.edu

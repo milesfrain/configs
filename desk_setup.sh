@@ -7,17 +7,24 @@ sudo apt upgrade
 
 ./base_setup.sh
 
-sudo apt install \
+sudo apt install -y \
   build-essential \
+  can-utils \
+  indicator-multiload \
   meld \
   minicom \
   peek \
+  # python-is-python3
+  # python3-tk
+  # python3-dev
   redshift \
+  socat \
   tlp \
   units \
   xcape \
   xclip
 
+# Minicom setup
 sudo adduser $USER dialout
 sudo touch /etc/minicom/minirc.dfl
 chown chown root:dialout /etc/minicom/minirc.dfl
@@ -43,7 +50,7 @@ gsettings reset org.gnome.desktop.input-sources xkb-options
 # Set charge threshold
 # This may only work on thinkpads
 sudo tlp-stat -b
-sudo tlp setcharge 60 80
+sudo tlp setcharge 60 80 || true
 sudo tlp-stat -b
 
 # Install rust

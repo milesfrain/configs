@@ -2,7 +2,7 @@
 
 set -xe
 
-sudo apt install \
+sudo apt install -y \
   curl \
   git \
   htop \
@@ -15,6 +15,8 @@ sudo apt install \
   zsh
 
 stow tmux
+./get-tmux-rst.sh
+
 # stow nvim (handled in vim_setup.sh)
 # Use our linked .zshrc, rather than the one provied by oh-my-zsh
 stow zsh
