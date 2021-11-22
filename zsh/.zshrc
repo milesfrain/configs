@@ -134,15 +134,20 @@ export TERM=xterm-256color
 # Added by Nix installer
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 
+# Checks if program exists
+function has () {
+    type $1 > /dev/null
+}
+
 # Convenience alias for opening files with assigned GUI. For example:
 # o some_document.pdf
-if type xdg-open; then alias o="xdg-open"; fi
+if has xdg-open; then alias o="xdg-open"; fi
 
 # Map capslock key to escape
-if type setxkbmap && type xcape; then setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'; fi
+if has setxkbmap && has xcape; then setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'; fi
 
 # Keyboard repeat rate
-if type xset; then xset r rate 200 50; fi
+if has xset; then xset r rate 200 50; fi
 
 alias b="~/configs/scripts/bits.py"
 
