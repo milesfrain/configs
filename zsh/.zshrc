@@ -139,12 +139,18 @@ function has () {
     type $1 > /dev/null
 }
 
+# Checks if program is running
+function running () {
+    pgrep $1 > /dev/null
+}
+
 # Convenience alias for opening files with assigned GUI. For example:
 # o some_document.pdf
 if has xdg-open; then alias o="xdg-open"; fi
 
 # Map capslock key to escape
-if has setxkbmap && has xcape; then setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'; fi
+# Only reconfigure if applications exist and xcape is not already running
+if has setxkbmap && has xcape && ! running xcape; then setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'; fi
 
 # Keyboard repeat rate
 if has xset; then xset r rate 200 50; fi
