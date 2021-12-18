@@ -24,7 +24,7 @@
 	uno = status -uno
 	all = log --branches --remotes --tags --decorate --oneline --graph
 	dog = log --decorate --oneline --graph
-	date = for-each-ref --sort=-committerdate --format='%(refname:short)' refs/heads/
+	date = branch --sort -committerdate --format='%(committerdate:relative)%09%(refname:short)'
 [merge]
 	tool = mymeldadv
 	trustexitcode = false
