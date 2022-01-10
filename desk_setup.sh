@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # desk setup
 
 set -xe
@@ -9,26 +11,25 @@ sudo apt upgrade
 
 sudo apt install -y \
   build-essential \
-  can-utils \
-  indicator-multiload \
   meld \
   minicom \
   peek \
-  # python-is-python3
-  # python3-tk
-  # python3-dev
+  python-is-python3 \
   redshift \
-  socat \
   tlp \
   units \
   xcape \
   xclip
 
+  # indicator-multiload \
+  # python3-tk \
+  # python3-dev \
+
 # Minicom setup
 sudo adduser $USER dialout
 sudo touch /etc/minicom/minirc.dfl
-chown chown root:dialout /etc/minicom/minirc.dfl
-chown chmod 664 /etc/minicom/minirc.dfl
+sudo chown root:dialout /etc/minicom/minirc.dfl
+sudo chmod 664 /etc/minicom/minirc.dfl
 
 # Cannot merge into single line
 sudo snap install alacritty --classic

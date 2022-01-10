@@ -8,7 +8,7 @@ For applying more minimal config, run:
 ./base_setup.sh
 ```
 
-You may need to manually change the deault shell to `zsh` by running:
+You may need to manually change the deault shell to `zsh` by running the following, and logging out and in:
 ```
 chsh -s $(which zsh)
 ```

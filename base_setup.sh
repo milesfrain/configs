@@ -3,12 +3,15 @@
 set -xe
 
 sudo apt install -y \
+  can-utils \
   curl \
   git \
   htop \
   ncdu \
   mlocate \
+  pv \
   ripgrep \
+  socat \
   stow \
   tree \
   tmux \
@@ -35,3 +38,5 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 ./vim_setup.sh
 
+echo Run the following command, then log out and in:
+echo chsh -s $(which zsh)
