@@ -48,6 +48,11 @@ gsettings set org.gnome.desktop.interface show-battery-percentage true
 # Working alt-shift-tab
 gsettings reset org.gnome.desktop.input-sources xkb-options
 
+# Improve double-click word selection
+# https://unix.stackexchange.com/questions/290544/double-click-selection-in-gnome-terminal
+puuid=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d "'")
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$puuid/ word-char-exceptions '@ms "-=&#:/.?@+~_%;"'
+
 # Set charge threshold
 # This may only work on thinkpads
 sudo tlp-stat -b
