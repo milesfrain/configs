@@ -147,7 +147,10 @@ function running () {
 
 # Convenience alias for opening files with assigned GUI. For example:
 # o some_document.pdf
-if has xdg-open; then alias o="xdg-open"; fi
+if has xdg-open; then alias o='xdg-open'; fi
+
+# Convenience alias for search all files
+if has rg; then alias rga='rg --no-ignore --hidden'; fi
 
 # Map capslock key to escape
 # Only reconfigure if applications exist and xcape is not already running
@@ -156,7 +159,7 @@ if has setxkbmap && has xcape && ! running xcape; then setxkbmap -option ctrl:no
 # Keyboard repeat rate
 if has xset; then xset r rate 200 50; fi
 
-alias b="~/configs/scripts/bits.py"
+alias b='~/configs/scripts/bits.py'
 
 function rename() {
     rg $1 -l | xargs sed -i "s/$1/$2/g"
@@ -195,3 +198,11 @@ if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
 #export NVM_DIR="$HOME/.config/nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#source /opt/ros/galactic/setup.zsh
+
+# Fix autocompletion
+# https://github.com/ros2/ros2cli/issues/534
+# argcomplete for ros2 & colcon
+eval "$(register-python-argcomplete3 ros2)"
+eval "$(register-python-argcomplete3 colcon)"
