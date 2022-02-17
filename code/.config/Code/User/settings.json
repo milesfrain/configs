@@ -3,7 +3,6 @@
         "editor.formatOnSave": true
     },
     "workbench.startupEditor": "newUntitledFile",
-    "python.linting.enabled": false,
     "python.pythonPath": "/usr/bin/python3",
     "julia.enableTelemetry": true,
     "editor.suggestSelection": "first",
@@ -150,7 +149,7 @@
     "cSpell.enableFiletypes": [
         "!haskell"
     ],
-    "cSpell.enabled": false,
+    "cSpell.enabled": true,
     "cSpell.spellCheckDelayMs": 1000,
     "workbench.activityBar.visible": true,
     "languageServerHaskell.diagnosticsOnChange": false,
@@ -182,7 +181,6 @@
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter.notebook.ipynb"
     },
-    "python.defaultInterpreterPath": "/usr/bin/python3",
     "extensions.ignoreRecommendations": true,
     "julia.symbolCacheDownload": true,
     "python.linting.pycodestyleArgs": [
@@ -191,5 +189,14 @@
     "python.linting.flake8Args": [
         "--ignore=E501"
     ],
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "files.associations": {
+        "*.env": "shellscript"
+    },
+    "C_Cpp.intelliSenseEngine": "Disabled",
+    "cmake.configureOnOpen": true,
+    "python.linting.mypyEnabled": true,
+    "python.venvFolders": [
+        "work"
+    ]
 }
