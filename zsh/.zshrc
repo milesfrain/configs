@@ -204,5 +204,5 @@ if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
 # Fix autocompletion
 # https://github.com/ros2/ros2cli/issues/534
 # argcomplete for ros2 & colcon
-eval "$(register-python-argcomplete3 ros2)"
-eval "$(register-python-argcomplete3 colcon)"
+#eval "$(register-python-argcomplete3 ros2)"
+#eval "$(register-python-argcomplete3 colcon)"
