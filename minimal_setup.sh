@@ -10,12 +10,13 @@ dotfiles=(
     "$dir"/zsh/.zshrc
 )
 
+# Setup symlinks to dotfiles (workaround when stow is not available)
 for d in "${dotfiles[@]}"
 do
-  ln -s $d ~/$(basename $d)
+  ln -s "$d" ~/$(basename "$d")
 done
 
-./get-tmux-rst.sh
+"$dir"/get-tmux-rst.sh
 
 # zsh
 rm -rf ~/.oh-my-zsh
