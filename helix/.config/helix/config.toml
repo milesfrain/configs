@@ -1,0 +1,14 @@
+theme = "bogster"
+# theme = "onedark"
+# theme = "monokai"
+# theme = "dark_plus"
+# theme = "solarized_dark"
+
+[editor]
+mouse = false
+
+[lsp]
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"

@@ -64,3 +64,11 @@ curl https://sh.rustup.rs -sSf | sh
 
 # Install watchexec (via rust/cargo)
 cargo install watchexec-cli
+
+# Install helix
+git clone --recurse-submodules --shallow-submodules -j8 https://github.com/helix-editor/helix
+pushd helix
+cargo install --path helix-term
+ln -s $(realpath runtime) ~/.config/helix/runtime
+popd
+stow helix
