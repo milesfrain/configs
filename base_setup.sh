@@ -2,6 +2,8 @@
 
 set -xe
 
+sudo apt update
+
 sudo apt install -y \
   can-utils \
   curl \
