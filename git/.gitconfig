@@ -6,13 +6,9 @@
 	path = ~/work/.gitconfig
 [core]
 	editor = vim
-    pager = delta
+	pager = less -FXR
 [color]
 	ui = auto
-[interactive]
-    diffFilter = delta --color-only
-[delta]
-    navigate = true  # use n and N to move between diff sections
 [diff]
 	tool = vimdiff
 	# For simple diffing with meld:
@@ -21,7 +17,6 @@
 	# git difftool -t meld <commit> -- <file>
 	guitool = meld
 	submodule = log
-    # colorMoved = default
 [difftool]
 	prompt = false
 [alias]
@@ -33,7 +28,6 @@
 [merge]
 	tool = mymeldadv
 	trustexitcode = false
-    # conflictstyle = diff3
 [mergetool "mymeldadv"]
 	# git difftool -t mymeldadv
 	#   BASE - Common ancestor of both changes
