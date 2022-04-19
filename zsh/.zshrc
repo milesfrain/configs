@@ -161,8 +161,18 @@ if has xset; then xset r rate 200 50; fi
 
 alias b='~/configs/scripts/bits.py'
 
+# Example:
+# rename old new
 function rename() {
     rg $1 -l | xargs sed -i "s/$1/$2/g"
+}
+
+# Allows renaming things containing slashes.
+# Uses pipe delimiter with sed, so can't rename things containing pipes.
+# Example:
+# rename_with_slashes_no_pipes /some/old/path /my/new/dir
+function rename_with_slashes_no_pipes() {
+    rg $1 -l | xargs sed -i "s|$1|$2|g"
 }
 
 function epoch () {
