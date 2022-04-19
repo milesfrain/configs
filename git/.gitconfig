@@ -17,6 +17,9 @@
 	# git difftool -t meld <commit> -- <file>
 	guitool = meld
 	submodule = log
+  # https://github.com/Wilfred/difftastic
+  # cargo install difftastic
+	external = difft
 [difftool]
 	prompt = false
 [alias]
