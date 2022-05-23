@@ -128,10 +128,6 @@ export EDITOR='vim'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# fix light highlighting
-# https://github.com/zsh-users/zsh-autosuggestions/issues/229#issuecomment-300675586
-export TERM=xterm-256color
-
 # Added by Nix installer
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 
