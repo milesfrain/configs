@@ -171,6 +171,11 @@ function rename_with_slashes_no_pipes() {
     rg $1 -l | xargs sed -i "s|$1|$2|g"
 }
 
+# Simple search with colored results piped to less
+function rgless() {
+  rg --color always $1 | less -R
+}
+
 function epoch () {
     date --reference=$1 +%s
 }
