@@ -156,6 +156,7 @@ if has setxkbmap && has xcape && ! running xcape; then setxkbmap -option ctrl:no
 if has xset; then xset r rate 200 50; fi
 
 alias b='~/configs/scripts/bits.py'
+alias tap='~/configs/scripts/yubikey-enable.sh'
 
 # Example:
 # rename old new
