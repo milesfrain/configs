@@ -197,6 +197,9 @@
     "cmake.configureOnOpen": true,
     "python.linting.mypyEnabled": true,
     "python.venvFolders": [
-        "work"
-    ]
+        "todo-use-work-dir-in-some-cases"
+    ],
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "workbench.statusBar.visible": false
 }

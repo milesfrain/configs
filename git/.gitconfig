@@ -10,7 +10,7 @@
 [color]
 	ui = auto
 [diff]
-	tool = vimdiff
+  #tool = vimdiff
 	# For simple diffing with meld:
 	# git difftool -g
 	# git difftool -t meld
@@ -50,6 +50,12 @@
 [mergetool "mymeld"]
 	# Abbreviated version of mymeldadv (just shows the last 3-way comparison window)
 	cmd = meld $LOCAL $MERGED $REMOTE
+[difftool "code"]
+    # git difftool -t code
+    cmd = code --wait --diff $LOCAL $REMOTE
+[mergetool "code"]
+    # git mergetool -t code
+    cmd = code --wait $MERGED
 [format]
 	pretty = medium
 [filter "lfs"]
