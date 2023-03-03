@@ -7,7 +7,7 @@ if [ $(uname -m) = x86_64 ]; then
   NVIM_PATH=~/software/nvim.appimage
   NVIM_DIR=$(dirname $NVIM_PATH)
   mkdir -p $NVIM_DIR
-  wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage -P $NVIM_DIR
+  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -P $NVIM_DIR
   chmod u+x $NVIM_PATH
   sudo update-alternatives --install /usr/bin/ex ex "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
