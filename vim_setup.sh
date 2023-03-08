@@ -9,6 +9,7 @@ if [ $(uname -m) = x86_64 ]; then
   mkdir -p $NVIM_DIR
   wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -P $NVIM_DIR
   chmod u+x $NVIM_PATH
+  sudo apt install fuse
   sudo update-alternatives --install /usr/bin/ex ex "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/view view "${NVIM_PATH}" 110
@@ -28,6 +29,7 @@ fi
 #rm ~/.config/nvim
 
 stow nvim
+rm -rf ~/.config/nvim/bundle
 mkdir -p ~/.config/nvim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
 
