@@ -159,6 +159,14 @@ alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'
 alias grod='git rebase --onto develop'
 
+# https://github.com/Wilfred/difftastic
+# cargo install difftastic
+# https://difftastic.wilfred.me.uk/git.html
+# Use with: diff, log -p, show
+function gt() {
+  GIT_EXTERNAL_DIFF=difft git $1 --ext-diff $@[2,-1]
+}
+
 # Example:
 # rename old new
 function rename() {
