@@ -157,6 +157,7 @@ if has xset; then xset r rate 200 50; fi
 
 alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'
+alias grod='git rebase --onto develop'
 
 # Example:
 # rename old new
