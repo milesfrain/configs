@@ -22,5 +22,5 @@ setup/no-stow.sh
 
 When migrating to a new tmux version, you can update reference default settings by running:
 ```
-setup/get-tmux-rst.sh
+./get-tmux-rst.sh
 ```
