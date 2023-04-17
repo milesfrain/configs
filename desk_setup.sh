@@ -21,10 +21,6 @@ sudo apt install -y \
   xcape \
   xclip
 
-  # indicator-multiload \
-  # python3-tk \
-  # python3-dev \
-
 # Minicom setup
 sudo adduser $USER dialout
 sudo touch /etc/minicom/minirc.dfl
