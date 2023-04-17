@@ -227,3 +227,4 @@ if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
 # argcomplete for ros2 & colcon
 #eval "$(register-python-argcomplete3 ros2)"
 #eval "$(register-python-argcomplete3 colcon)"
+#source ~/software/git-subrepo/.rc
