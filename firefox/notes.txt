@@ -1,0 +1,24 @@
+Trying option 3 here:
+https://superuser.com/a/1731891
+https://github.com/dwyl/english-words
+
+Can find persdict.dat here:
+(will be different hash)
+~/.mozilla/firefox/h2z2ok7o.default-release/persdict.dat
+
+Super annoying that this does not allow optional capitalization. Must manually duplicate.
+
+Would ideally like to use the en_US-large dictionary.
+
+To search for which dictionary words belong to:
+http://app.aspell.net/lookup?dict=en_US;words=recalibrate%0D%0Alatency%0D%0Alatencies
+
+A previous extension used the large dict, but it is no longer maintained.
+https://addons.mozilla.org/en-US/firefox/addon/united-states-english-spellche/
+
+To find related requests for large dict:
+https://www.google.com/search?q="en_US-large"+site%3Abugzilla.mozilla.org
+
+Some other recent complaints:
+https://connect.mozilla.org/t5/ideas/bigger-dictionary-for-firefox-spell-checking/idi-p/9918
+
