@@ -1,11 +1,6 @@
-For applying a desktop config, run:
+Clone this repo, then run:
 ```
-./desk_setup.sh
-```
-
-For applying more minimal config, run:
-```
-./base_setup.sh
+setup/core.sh
 ```
 
 You may need to manually change the deault shell to `zsh` by running the following, and logging out and in:
@@ -13,7 +8,19 @@ You may need to manually change the deault shell to `zsh` by running the followi
 chsh -s $(which zsh)
 ```
 
+You can then run additional setup scripts depending on what you want to install:
+```
+setup/apps.sh
+setup/gui.sh
+setup/laptop.sh
+```
+
+If your system does not have `stow`, you can still install a minimal config with:
+```
+setup/no-stow.sh
+```
+
 When migrating to a new tmux version, you can update reference default settings by running:
 ```
-./get-tmux-rst.sh
+setup/get-tmux-rst.sh
 ```
