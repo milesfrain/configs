@@ -153,7 +153,8 @@ if has rg; then alias rga='rg --no-ignore --hidden'; fi
 if has setxkbmap && has xcape && ! running xcape; then setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'; fi
 
 # Keyboard repeat rate
-if has xset; then xset r rate 200 50; fi
+# Do not run if there is no active display. That would spam an error.
+if has xset && test "$DISPLAY"; then xset r rate 200 50; fi
 
 alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'
