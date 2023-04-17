@@ -19,6 +19,8 @@ sudo apt install -y \
   tmux \
   zsh
 
+stow git
+
 stow tmux
 ./get-tmux-rst.sh
 

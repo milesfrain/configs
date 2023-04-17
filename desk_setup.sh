@@ -36,7 +36,6 @@ sudo snap install slack --classic
 
 stow alacritty
 stow code
-stow git
 
 # Show battery percentage
 gsettings set org.gnome.desktop.interface show-battery-percentage true
