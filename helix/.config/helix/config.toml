@@ -7,7 +7,7 @@ theme = "bogster"
 [editor]
 mouse = false
 
-[lsp]
+[editor.lsp]
 display-messages = true
 
 [editor.cursor-shape]
