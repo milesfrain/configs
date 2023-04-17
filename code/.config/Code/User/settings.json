@@ -201,5 +201,15 @@
     ],
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    "workbench.statusBar.visible": false
+    "editor.inlayHints.enabled": "off",
+    "editor.inlineSuggest.enabled": true,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false
+    }
 }
