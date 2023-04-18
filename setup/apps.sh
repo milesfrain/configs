@@ -15,6 +15,7 @@ sudo apt install -y \
   curl \
   git \
   htop \
+  libfuse2 \
   ncdu \
   mlocate \
   pv \
@@ -22,7 +23,7 @@ sudo apt install -y \
   socat \
   tree
 
-./vim_setup.sh
+setup/vim.sh
 
 # Minicom setup
 sudo adduser $USER dialout
