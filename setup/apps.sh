@@ -35,12 +35,13 @@ sudo chmod 664 /etc/minicom/minirc.dfl
 curl https://sh.rustup.rs -sSf | sh
 
 # Install helix
-git clone --recurse-submodules --shallow-submodules -j8 https://github.com/helix-editor/helix
-pushd helix
+stow helix
+mkdir -p ~/software
+git clone --recurse-submodules --shallow-submodules -j8 https://github.com/helix-editor/helix ~/software/helix
+pushd ~/software/helix
 cargo install --path helix-term
 ln -s $(realpath runtime) ~/.config/helix/runtime
 popd
-stow helix
 
 # Install watchexec (via rust/cargo)
 cargo install watchexec-cli
