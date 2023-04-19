@@ -171,8 +171,8 @@ alias grod='git rebase --onto develop'
 # cargo install difftastic
 # https://difftastic.wilfred.me.uk/git.html
 # Use with: diff, log -p, show
-function gt() {
-  GIT_EXTERNAL_DIFF=difft git $1 --ext-diff $@[2,-1]
+gt() {
+    GIT_EXTERNAL_DIFF=difft git $1 --ext-diff $@[2,-1]
 }
 
 # Example:

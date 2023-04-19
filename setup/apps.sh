@@ -57,6 +57,8 @@ popd
 # Install watchexec (via rust/cargo)
 cargo install watchexec-cli
 
+cargo install difftastic
+
 # To automatically install parsers in astrovim
 cargo install tree-sitter-cli
 
