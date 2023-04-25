@@ -20,6 +20,11 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    -- Alternatives for tab selection:
+    --   <leader>bb
+    --   <leader>fb
+    -- ["<C-Tab>"] = { ":bnext<cr>", desc = "Next tab" },
+    -- ["<C-S-Tab>"] = { ":bprev<cr>", desc = "Previous tab" },
   },
   t = {
     -- setting a mapping to false will disable it

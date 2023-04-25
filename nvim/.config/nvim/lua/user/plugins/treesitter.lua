@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
-    -- ensure_installed = { "lua" },
+    -- Automatically install parsers for opened files
+    auto_install = true,
   },
 }
