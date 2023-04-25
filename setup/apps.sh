@@ -23,8 +23,6 @@ sudo apt install -y \
   socat \
   tree
 
-setup/vim.sh
-
 # Minicom setup
 sudo adduser $USER dialout
 sudo touch /etc/minicom/minirc.dfl
