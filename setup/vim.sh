@@ -12,7 +12,6 @@ if [ $(uname -m) = x86_64 ]; then
   sudo update-alternatives --install /usr/bin/ex ex "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/view view "${NVIM_PATH}" 110
-  sudo update-alternatives --install /usr/bin/vim vim "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/nvim nvim "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${NVIM_PATH}" 110
 else
