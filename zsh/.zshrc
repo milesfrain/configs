@@ -86,7 +86,7 @@ export FZF_BASE=~/.fzf
 plugins=(
     fzf
     git
-    nvm
+    nvm # Includes what install script attempts to append to .zshrc
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-vi-mode
@@ -221,12 +221,6 @@ function typesize () {
 
 # Run this additional setup script if it exists in the local directory
 if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
-
-# todo - is this necessary after reboot?
-#
-#export NVM_DIR="$HOME/.config/nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #source /opt/ros/galactic/setup.zsh
 
