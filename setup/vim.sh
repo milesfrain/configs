@@ -22,13 +22,8 @@ else
   # Todo - could add a check and an error
 fi
 
-# clear old configs (for debugging or non-fresh setup):
-#rm -rf ~/.config/nvim/bundle
-#rm ~/.config/nvim
+# Setup astrovim
+git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
+# Link user config
 stow nvim
-mkdir -p ~/.config/nvim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-
-nvim --headless +PluginInstall +qa
-
