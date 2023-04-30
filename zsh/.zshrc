@@ -165,6 +165,7 @@ if has xset && test "$DISPLAY"; then xset r rate 200 50; fi
 
 alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'
+alias notap='~/configs/scripts/yubikey-enable.sh foo'
 alias grod='git rebase --onto develop'
 
 # https://github.com/Wilfred/difftastic
