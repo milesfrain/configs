@@ -40,6 +40,12 @@ tar xf lazygit.tar.gz lazygit
 sudo install lazygit /usr/local/bin
 rm lazygit lazygit.tar.gz
 
+# Install node via nvm
+# Set PROFILE=/dev/null to tell setup script to not edit .zshrc.
+# Completions are handled by nvm zsh plugin.
+PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
+nvm install stable
+
 # Install rust
 curl https://sh.rustup.rs -sSf | sh
 
