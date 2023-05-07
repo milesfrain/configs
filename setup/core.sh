@@ -16,6 +16,9 @@ stow git
 stow tmux
 ./get-tmux-rst.sh
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+~/.tmux/plugins/tpm/bin/install_plugins
+
 # Use our linked .zshrc, rather than the one provied by oh-my-zsh
 stow zsh
 
