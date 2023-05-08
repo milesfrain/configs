@@ -16,6 +16,8 @@ stow git
 stow tmux
 ./get-tmux-rst.sh
 
+# Some plugins (CPU monitor) require cmake, which is installed in setup/apps.sh
+# But tmux will still work fine without it.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/bin/install_plugins
 
