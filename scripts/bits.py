@@ -2,7 +2,7 @@
 
 import sys
 
-num = int(sys.argv[1])
+num = int(sys.argv[1], 0)
 print(num)
 print(hex(num))
 print(bin(num))
