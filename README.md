@@ -1,26 +1,22 @@
-Clone this repo, then run:
+This `basic` branch just includes a small config for `zsh`, `fzf`, and `tmux`.
+Configs are tracked using `stow`.
+
+This does not customize any `tmux` keybindings. You can read more about the default bindings here:
+https://github.com/tmux/tmux/wiki/Getting-Started
+
+For more opinionated tmux bindings, you can follow the setup instructions in the main branch:
+https://github.com/milesfrain/configs
+
+#### Installation:
+
+Clone the `basic` branch of this repo and run the setup script:
 ```
-setup/core.sh
+git clone https://github.com/milesfrain/configs.git --depth=1 --branch basic ~/configs
+cd ~/configs
+./setup.sh
 ```
 
-You may need to manually change the deault shell to `zsh` by running the following, and logging out and in:
+You may need to manually change the default shell to `zsh` by running the following, and logging out and in:
 ```
 chsh -s $(which zsh)
-```
-
-You can then run additional setup scripts depending on what you want to install:
-```
-setup/apps.sh
-setup/gui.sh
-setup/laptop.sh
-```
-
-If your system does not have `stow`, you can still install a minimal config with:
-```
-setup/no-stow.sh
-```
-
-When migrating to a new tmux version, you can update reference default settings by running:
-```
-./get-tmux-rst.sh
 ```
