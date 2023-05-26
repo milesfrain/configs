@@ -16,6 +16,9 @@ stow tmux
 # Use our linked .zshrc, rather than the one provied by oh-my-zsh
 stow zsh
 
+# Copy bash history to zsh histoy
+cat ~/.bash_history | python3 bash-to-zsh-hist.py >> ~/.zsh_history
+
 # zsh
 rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
