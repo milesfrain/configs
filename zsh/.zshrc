@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Set zsh theme
+ZSH_THEME="robbyrussell"
+
 # Set fzf installation directory path
 export FZF_BASE=~/.fzf
 
