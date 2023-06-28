@@ -1,5 +1,14 @@
 -- customize mason plugins
 return {
+  {
+    "williamboman/mason.nvim",
+    -- overrides `require("mason").setup(...)`
+    opts = {
+      -- Use system clangd installation, instead of mason's copy
+      -- https://github.com/williamboman/mason.nvim/issues/668#issuecomment-1320859097
+      PATH = "append",
+    },
+  },
   -- use mason-lspconfig to configure LSP installations
   {
     "williamboman/mason-lspconfig.nvim",
