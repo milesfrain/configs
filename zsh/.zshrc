@@ -115,13 +115,10 @@ zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 export EDITOR='vim'
+# Editor for vi mode (launch with vv in normal mode).
+# Defaults to $EDITOR if unset.
+export ZVM_VI_EDITOR='nvim -c "set wrap"'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
