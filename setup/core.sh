@@ -19,7 +19,9 @@ stow tmux
 # Some plugins (CPU monitor) require cmake, which is installed in setup/apps.sh
 # But tmux will still work fine without it.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-~/.tmux/plugins/tpm/bin/install_plugins
+TMUX_PLUGIN_MANAGER_PATH=~/.tmux/plugins ~/.tmux/plugins/tpm/bin/install_plugins
+# need to run this within tmux
+# ~/.tmux/plugins/tpm/bin/install_plugins
 
 # Use our linked .zshrc, rather than the one provied by oh-my-zsh
 stow zsh
