@@ -24,6 +24,8 @@ sudo apt install -y \
   socat \
   tree
 
+stow gdb
+
 # Minicom setup
 sudo adduser $USER dialout
 sudo touch /etc/minicom/minirc.dfl
