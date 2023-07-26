@@ -5,7 +5,7 @@
 	# Add an alternate email
 	path = ~/work/.gitconfig
 [core]
-	editor = vim
+	editor = nvim
 	pager = less -FXR
 [color]
 	ui = auto
