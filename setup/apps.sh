@@ -60,7 +60,7 @@ stow helix
 mkdir -p ~/software
 git clone --recurse-submodules --shallow-submodules -j8 https://github.com/helix-editor/helix ~/software/helix
 pushd ~/software/helix
-cargo install --path helix-term
+cargo install --path helix-term --locked
 ln -s $(realpath runtime) ~/.config/helix/runtime
 popd
 
