@@ -47,6 +47,9 @@ rm lazygit lazygit.tar.gz
 # Set PROFILE=/dev/null to tell setup script to not edit .zshrc.
 # Completions are handled by nvm zsh plugin.
 PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
+# Load nvm without relaunching terminal
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm install stable
 
 # Install rust
