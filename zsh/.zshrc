@@ -165,6 +165,8 @@ alias tap='~/configs/scripts/yubikey-enable.sh'
 alias notap='~/configs/scripts/yubikey-enable.sh foo'
 alias grod='git rebase --onto develop'
 
+# oh-my-zsh currently sets gt as 'git tag' alias
+unalias gt
 # https://github.com/Wilfred/difftastic
 # cargo install difftastic
 # https://difftastic.wilfred.me.uk/git.html
