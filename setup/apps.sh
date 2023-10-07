@@ -11,6 +11,7 @@ sudo apt install -y \
   cmake \
   minicom \
   python-is-python3 \
+  python3-pip \
   units \
   can-utils \
   curl \
@@ -51,6 +52,9 @@ PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 nvm install stable
+
+# Install markdown viewer
+pip install mdv
 
 # Install rust
 curl https://sh.rustup.rs -sSf | sh
