@@ -163,7 +163,12 @@ if has xset && test "$DISPLAY"; then xset r rate 200 50; fi
 alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'
 alias notap='~/configs/scripts/yubikey-enable.sh foo'
-alias grod='git rebase --onto develop'
+# rebase onto the default branch (e.g. main, master, develop, etc.)
+function grod () {
+    default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
+    common_ancestor=$(git merge-base HEAD $default_branch)
+    git rebase --onto $default_branch $common_ancestor
+}
 
 # oh-my-zsh currently sets gt as 'git tag' alias
 if has gt; then unalias gt; fi
