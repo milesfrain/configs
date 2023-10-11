@@ -201,6 +201,19 @@ function epoch () {
     date --reference=$1 +%s
 }
 
+# https://superuser.com/a/796341
+function remove_line_breaks_from_clipboard() {
+    # Clipboard with -b
+    xsel -b | \
+        sed 's/\.$/.|/g' | sed 's/^\s*$/|/g' | tr '\n' ' ' | tr '|' '\n' | \
+        xsel -ib
+
+    # Primary selection (highlight + middle click) by default
+    xsel | \
+        sed 's/\.$/.|/g' | sed 's/^\s*$/|/g' | tr '\n' ' ' | tr '|' '\n' | \
+        xsel -i
+}
+
 function pipreinstall () {
      pip install --ignore-installed --no-deps "$@"
 }
