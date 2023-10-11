@@ -170,8 +170,6 @@ function grod () {
     git rebase --onto $default_branch $common_ancestor
 }
 
-# oh-my-zsh currently sets gt as 'git tag' alias
-if has gt; then unalias gt; fi
 # https://github.com/Wilfred/difftastic
 # cargo install difftastic
 # https://difftastic.wilfred.me.uk/git.html
