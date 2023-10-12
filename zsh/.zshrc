@@ -181,7 +181,7 @@ gt() {
 # Example:
 # rename old new
 function rename() {
-    rg $1 -l | xargs sed -i "s/$1/$2/g"
+    rg -F $1 -l | xargs -d '\n' sed -i "s/$1/$2/g"
 }
 
 # Allows renaming things containing slashes.
@@ -189,7 +189,7 @@ function rename() {
 # Example:
 # rename_with_slashes_no_pipes /some/old/path /my/new/dir
 function rename_with_slashes_no_pipes() {
-    rg $1 -l | xargs sed -i "s|$1|$2|g"
+    rg -F $1 -l | xargs -d '\n' sed -i "s|$1|$2|g"
 }
 
 # Simple search with colored results piped to less
