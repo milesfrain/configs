@@ -178,6 +178,11 @@ gt() {
     GIT_EXTERNAL_DIFF=difft git $1 --ext-diff $@[2,-1]
 }
 
+# Pipe cargo output to pager and preserve colors
+cargol() {
+    cargo $@ --color always 2>&1 | less -r
+}
+
 # Example:
 # rename old new
 function rename() {
