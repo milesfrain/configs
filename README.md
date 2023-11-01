@@ -1,11 +1,12 @@
-This `basic` branch just includes a small config for `zsh`, `fzf`, and `tmux`.
+This `ansible` branch just includes a small config for `zsh`, `fzf`, and `tmux`.
+It's the same as the `basic` branch, but skips the `apt update` step.
 Configs are tracked using `stow`.
 
 ## Installation:
 
-Clone the `basic` branch of this repo and run the setup script:
+Clone the `ansible` branch of this repo and run the setup script:
 ```
-git clone https://github.com/milesfrain/configs.git --depth=1 --branch basic ~/configs
+git clone https://github.com/milesfrain/configs.git --depth=1 --branch ansible ~/configs
 cd ~/configs
 ./setup.sh
 ```
