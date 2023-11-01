@@ -186,15 +186,7 @@ cargol() {
 # Example:
 # rename old new
 function rename() {
-    rg -F $1 -l | xargs -d '\n' sed -i "s/$1/$2/g"
-}
-
-# Allows renaming things containing slashes.
-# Uses pipe delimiter with sed, so can't rename things containing pipes.
-# Example:
-# rename_with_slashes_no_pipes /some/old/path /my/new/dir
-function rename_with_slashes_no_pipes() {
-    rg -F $1 -l | xargs -d '\n' sed -i "s|$1|$2|g"
+    rg -F $1 -l | xargs -d '\n' sd $1 $2
 }
 
 # Simple search with colored results piped to less

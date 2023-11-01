@@ -73,6 +73,8 @@ cargo install watchexec-cli
 
 cargo install difftastic
 
+cargo install sd
+
 # To automatically install parsers in astrovim
 cargo install tree-sitter-cli
 
