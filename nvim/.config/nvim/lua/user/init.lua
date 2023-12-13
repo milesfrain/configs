@@ -30,6 +30,17 @@ return {
     config = {
       clangd = {
         capabilities = { offsetEncoding = "utf-8" }
+      -- },
+      -- oops = {
+      --   cargo = {
+      --     buildScripts = { enable = false }
+      --   }
+      -- },
+      -- rust_analyzer = {
+      --   cargo = {
+      --     buildScripts = { enable = false },
+      --     unexpected = { enable = false }
+      --   }
       }
     },
     -- customize lsp formatting options
