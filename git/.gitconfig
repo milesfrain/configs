@@ -54,7 +54,7 @@
     # git mergetool -t code
     cmd = code --wait $MERGED
 [format]
-	pretty = medium
+	pretty = %C(yellow)commit %H%C(auto)%d%n%C(reset)Author: %an <%ae>%nDate:   %ad%n%n%w(0,4,4)%B
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
