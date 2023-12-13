@@ -232,6 +232,18 @@ function typesize () {
     done
 }
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
+
+plugin=(
+  pyenv
+)
+
+eval "$(pyenv init -)"
+eval "$(command pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
 # Run this additional setup script if it exists in the local directory
 if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
 
@@ -246,3 +258,6 @@ if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+
