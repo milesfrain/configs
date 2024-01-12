@@ -7,11 +7,4 @@ return {
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.motion.nvim-surround" },
-
-  -- To consider:
-  -- multi-highlighter
-  -- https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/color/vim-highlighter
-  --
-  -- Better matching (passive)
-  -- https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/motion/vim-matchup
 }
