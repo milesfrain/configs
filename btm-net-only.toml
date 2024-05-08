@@ -1,0 +1,8 @@
+# Config for launching btm with just the network display
+# btm -C ~/configs/btm-net-only.toml
+
+# More detailed example:
+# https://github.com/ClementTsang/bottom/blob/073ca890f7348fb2963d6babb26197af4dc2d3b3/sample_configs/default_config.toml#L133
+[[row]]
+[[row.child]]
+type = "net"
