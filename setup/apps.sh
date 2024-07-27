@@ -18,7 +18,6 @@ sudo apt install -y \
   git \
   htop \
   libfuse2 \
-  ncdu \
   mlocate \
   pv \
   ripgrep \
