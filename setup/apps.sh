@@ -20,6 +20,8 @@ sudo apt install -y \
   libfuse2 \
   mlocate \
   pv \
+  stress-ng \
+  lm-sensors \
   ripgrep \
   socat \
   tree
@@ -54,6 +56,15 @@ nvm install stable
 
 # Install markdown viewer
 pip install mdv
+
+# Install CPU temperature and fan monitor
+pip install s-tui --user
+# Probably should run these sensor setup commands manually:
+#   sudo sensors-detect
+#   sudo systemctl restart kmod
+# Then s-tui should be able to detect fan speed
+# Troubleshoot by checking output of:
+#   sensors
 
 # Install rust
 curl https://sh.rustup.rs -sSf | sh
