@@ -1,10 +1,9 @@
 #!/bin/bash
-# http://unix.stackexchange.com/a/255343
-tmux -f /dev/null -L temp start-server \; list-keys | \
-    sed -r \
-    -e "s/(bind-key.*\s+)([\"#~\$])(\s+)/\1\'\2\'\3/g" \
-    -e "s/(bind-key.*\s+)([\'])(\s+)/\1\"\2\"\3/g" \
-    -e "s/(bind-key.*\s+)([;])(\s+)/\1\\\\\2\3/g" \
-    -e "s/(command-prompt -I )#([SW])/\1\"#\2\"/g" \
-    -e "s/(if-shell -F -t = )#([^ ]+)/\1\"#\2\"/g" \
-    > ~/.reset.tmux.conf
+
+# Works for tmux version >= 3.2a
+# Additional escaping needed for older versions.
+# Can refer to earlier version of this file or linked
+# code snippet.
+# https://unix.stackexchange.com/a/350847
+# Todo add logic to script to check for tmux version
+tmux -f /dev/null -L temp start-server \; list-keys > ~/.reset.tmux.conf
