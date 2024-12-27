@@ -23,7 +23,8 @@ else
 fi
 
 # Setup astrovim
-git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+# This is all tracked in user config, but can use this command to start fresh.
+# git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 
 # Link user config
 stow nvim
