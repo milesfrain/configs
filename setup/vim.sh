@@ -28,3 +28,7 @@ fi
 
 # Link user config
 stow nvim
+# Ignore this error, occurs even when checking version
+#   Possible precedence issue with control flow operator (exit) at /usr/bin/stow line 839, <DATA> line 23.
+#   stow -V
+#   stow (GNU Stow) version 2.4.0

@@ -4,9 +4,15 @@
 
 set -xe
 
-sudo apt update
+# Use apt by default (debian/ubuntu), or dnf for fedora
+APT=apt
+if command -v dnf &> /dev/null; then
+    APT=dnf
+fi
 
-sudo apt install -y \
+sudo $APT update
+
+sudo $APT install -y \
   stow \
   tmux \
   zsh

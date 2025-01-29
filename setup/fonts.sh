@@ -8,6 +8,12 @@
 # See this pages for instructions for your terminal:
 # https://github.com/romkatv/powerlevel10k#manual-font-installation
 #
+# GNOME terminal:
+#   Preferences, Appearance, Font, MesloLGS Regular
+#
+# Alacritty:
+#   todo
+#
 # For reference, GNOME terminal default is 'Fira Mono Regular'
 
 set -xe
@@ -23,3 +29,5 @@ fi
 
 # install fonts
 fc-cache -f -v
+
+# Will appear immediately in system fonts menu, but may need to restart terminal, or logout for new font to be available in terminal.

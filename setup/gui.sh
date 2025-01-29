@@ -7,6 +7,8 @@ set -xe
 sudo apt update
 sudo apt upgrade
 
+# Fedora only needs meld and alacritty
+
 # gui
 sudo apt install -y \
   meld \
