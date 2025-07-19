@@ -150,6 +150,8 @@ function running () {
 # o some_document.pdf
 if has xdg-open; then alias o='xdg-open'; fi
 
+alias text='gnome-text-editor'
+
 # Convenience alias for search all files
 if has rg; then alias rga='rg --no-ignore --hidden'; fi
 
