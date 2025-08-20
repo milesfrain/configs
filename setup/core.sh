@@ -25,9 +25,18 @@ stow tmux
 # Some plugins (CPU monitor) require cmake, which is installed in setup/apps.sh
 # But tmux will still work fine without it.
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# On one system install, it encountered an "unknown variable: TMUX_PLUGIN_MANAGER_PATH" error.
+# Like this https://github.com/tmux-plugins/tpm/issues/248
+# But I think that was due to another old instance of tmux running.
+# I didn't see it in the process list, but found one via `tmux attach`.
 TMUX_PLUGIN_MANAGER_PATH=~/.tmux/plugins ~/.tmux/plugins/tpm/bin/install_plugins
-# need to run this within tmux
+# Likely outdated instruction: "need to run this within tmux"
 # ~/.tmux/plugins/tpm/bin/install_plugins
+
+# This manual approach works well:
+# Launch tmux, make sure config is loaded, and install plugins with:
+# <prefix> + I
+# https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installing-plugins
 
 # Use our linked .zshrc, rather than the one provied by oh-my-zsh
 stow zsh
