@@ -247,11 +247,5 @@ if [ -f zshrc-extra.zsh ]; then source zshrc-extra.zsh; fi
 #eval "$(register-python-argcomplete3 colcon)"
 #source ~/software/git-subrepo/.rc
 
-# >>> juliaup initialize >>>
-# !! Contents within this block are managed by juliaup !!
-path=('/home/miles/.juliaup/bin' $path)
-export PATH
-# <<< juliaup initialize <<<
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
