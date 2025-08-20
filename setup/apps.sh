@@ -22,11 +22,8 @@ else
     curl \
     git \
     htop \
-    libfuse2 \
     lm-sensors \
-    mlocate \
     python-is-python3 \
-    python3-pip \
     tree
 fi
 
@@ -86,11 +83,15 @@ set +x # disable tracing for spammy command
 nvm install stable
 set -x # re-enable tracing
 
+# Need to use pipx (or alternative) instead of pip to install on
+# Python 3.11+ systems (Ubuntu 23+).
+# Can generate helpful error message with old pip attempt.
+
 # Install markdown viewer
-pip install mdv
+#pip install mdv
 
 # Install CPU temperature and fan monitor
-pip install s-tui --user
+#pip install s-tui --user
 # Probably should run these sensor setup commands manually:
 #   Todo: Try running s-tui without these first
 #   sudo sensors-detect
