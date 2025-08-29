@@ -27,3 +27,6 @@ family = "MesloLGS NF"
 
 [window]
 decorations = "none"
+
+[keyboard]
+bindings = [{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" }]
