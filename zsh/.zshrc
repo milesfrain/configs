@@ -188,7 +188,7 @@ cargol() {
 
 # Example:
 # rename old new
-function rename() {
+function rename_in_files() {
     rg -F $1 -l | xargs -d '\n' sd $1 $2
 }
 
