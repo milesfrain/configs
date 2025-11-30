@@ -39,19 +39,11 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      "ccls", -- enable ccls language server
       -- "pyright"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
-      ccls = {
-        init_options = {
-          cache = {
-            directory = vim.fn.expand "~/.cache/ccls",
-          },
-        },
-      },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
       clangd = {
         cmd = {
@@ -77,7 +69,6 @@ return {
       -- function(server, opts) require("lspconfig")[server].setup(opts) end
 
       -- the key is the server that is being setup with `lspconfig`
-      clangd = false, -- disable clangd since we're using ccls
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
       -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
     },
