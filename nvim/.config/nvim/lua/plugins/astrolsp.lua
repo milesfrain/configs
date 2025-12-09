@@ -1,4 +1,4 @@
--- Activated for clangd query-driver configuration
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
@@ -45,23 +45,6 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
-      clangd = {
-        cmd = {
-          "clangd",
-          -- show detailed query attempts in :LspLog
-          "--log=verbose",
-          -- --query-driver is an allowlist to let clangd run the compiler binary specified in
-          -- compile_commands.json or in .clangd's CompileFlags::Compiler:
-          -- to discover builtin system include paths
-          "--query-driver="
-            .. vim.fn.expand "~"
-            .. "/.platformio/packages/*/bin/arm-*-eabi-g*",
-          -- Here's an alternate convenient option, but it's unsafe.
-          -- Vulnerable to opening any files with vim in a repo that contains a
-          -- malicious compile_commands.json and binary.
-          -- "--query-driver=**/*-gcc,**/*-g++,**/*-clang++",
-        },
-      },
     },
     -- customize how language servers are attached
     handlers = {
