@@ -15,12 +15,12 @@ return {
   -- == Examples of Overriding Plugins ==
 
   -- customize dashboard options
---  {
---    "folke/snacks.nvim",
---    opts = function(_, opts)
---      -- customize the dashboard header
---      opts.section.header.val = {}
---      return opts
---    end,
---  },
+  {
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      -- customize the dashboard header
+      opts.section.header.val = {}
+      return opts
+    end,
+  },
 }
