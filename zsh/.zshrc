@@ -155,6 +155,8 @@ alias text='gnome-text-editor'
 # Convenience alias for search all files
 if has rg; then alias rga='rg --no-ignore --hidden'; fi
 
+if has libreoffice; then alias calc='libreoffice --calc'; fi
+
 # Map capslock key to escape
 # Only reconfigure if applications exist and xcape is not already running
 if has setxkbmap && has xcape && ! running xcape; then setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'; fi
