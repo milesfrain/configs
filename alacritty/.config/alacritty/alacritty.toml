@@ -23,7 +23,7 @@
 #foreground = "#eeeeec"
 
 [font.normal]
-family = "MesloLGS NF"
+family = "MesloLGSDZ Nerd Font"
 
 [window]
 decorations = "none"

@@ -18,13 +18,16 @@
 
 set -xe
 
+font_name=MesloLGSDZNerdFont
+font_root=~/.local/share/fonts
+font_path=$font_root/$font_name
 # download fonts and move to ~/.local/share/fonts if not already there
-if [ ! -d ~/.local/share/fonts/mesloLGS_NF ]; then
-  mkdir -p ~/.local/share/fonts/mesloLGS_NF
-  wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf -O ~/.local/share/fonts/mesloLGS_NF/MesloLGS\ NF\ Regular.ttf
-  wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf -O ~/.local/share/fonts/mesloLGS_NF/MesloLGS\ NF\ Bold.ttf
-  wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf -O ~/.local/share/fonts/mesloLGS_NF/MesloLGS\ NF\ Italic.ttf
-  wget https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf -O ~/.local/share/fonts/mesloLGS_NF/MesloLGS\ NF\ Bold\ Italic.ttf
+if [ ! -d $font_path ]; then
+  mkdir -p $font_root
+  cp -r fonts/$font_name $font_root
+else
+  echo Font already exists. Did not overwrite. $font_path
+  exit 1
 fi
 
 # install fonts
