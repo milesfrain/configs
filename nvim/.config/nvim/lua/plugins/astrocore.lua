@@ -78,6 +78,9 @@ return {
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
 
+        -- switch between source/header files (clangd)
+        ["gh"] = { "<cmd>ClangdSwitchSourceHeader<CR>", desc = "Switch source/header (clangd)" },
+
         -- copy file reference to clipboard
         ["<C-n>"] = {
           function()
