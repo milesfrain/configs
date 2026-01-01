@@ -29,4 +29,7 @@ family = "MesloLGSDZ Nerd Font"
 decorations = "none"
 
 [keyboard]
-bindings = [{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" }]
+bindings = [
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" },
+  { key = "Return", mods = "Shift", chars = "\n" },
+]
