@@ -10,6 +10,18 @@ return {
         winblend = 0, -- Fully opaque preview window
       },
     },
+    -- use fullscreen quickfix preview window by default
+    -- toggle with 'zp'
+    config = function(_, opts)
+      require("bqf").setup(opts)
+      local PreviewSession = require "bqf.preview.session"
+      local old_new = PreviewSession.new
+      PreviewSession.new = function(self, winid, focusable)
+        local o = old_new(self, winid, focusable)
+        o.full = true
+        return o
+      end
+    end,
   },
 
   -- == Examples of Adding Plugins ==
@@ -23,12 +35,12 @@ return {
   -- == Examples of Overriding Plugins ==
 
   -- customize dashboard options
---  {
---    "folke/snacks.nvim",
---    opts = function(_, opts)
---      -- customize the dashboard header
---      opts.section.header.val = {}
---      return opts
---    end,
---  },
+  --  {
+  --    "folke/snacks.nvim",
+  --    opts = function(_, opts)
+  --      -- customize the dashboard header
+  --      opts.section.header.val = {}
+  --      return opts
+  --    end,
+  --  },
 }
