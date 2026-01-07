@@ -9,4 +9,5 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.quickfix.nvim-bqf" },
 }
