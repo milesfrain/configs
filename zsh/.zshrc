@@ -136,6 +136,9 @@ export ZVM_VI_EDITOR='nvim -c "set wrap"'
 # Added by Nix installer
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 
+# secret keys
+if [ -e ~/.keys ]; then . ~/.keys; fi
+
 # Checks if program exists
 function has () {
     type $1 > /dev/null
