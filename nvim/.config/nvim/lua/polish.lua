@@ -32,3 +32,13 @@ vim.api.nvim_create_user_command("SaveBackupAndReload", function()
   vim.notify("Saved backup to: " .. backup_name, vim.log.levels.INFO)
   vim.cmd "edit!"
 end, {})
+
+-- Shorter aliases for Diffview
+vim.api.nvim_create_user_command("Dvo", "DiffviewOpen <args>", { nargs = "*" })
+vim.api.nvim_create_user_command("Dvc", "DiffviewClose", {})
+
+-- Command-line abbreviations for lowercase variants
+vim.cmd [[
+  cnoreabbrev dvo Dvo
+  cnoreabbrev dvc Dvc
+]]
