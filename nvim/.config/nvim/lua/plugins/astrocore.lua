@@ -35,21 +35,27 @@ return {
     --      [".*/etc/foo/.*"] = "fooscript",
     --    },
     --  },
-    --  -- vim options can be configured here
-    --  options = {
-    --    opt = { -- vim.opt.<key>
-    --      relativenumber = true, -- sets vim.opt.relativenumber
-    --      number = true, -- sets vim.opt.number
-    --      spell = false, -- sets vim.opt.spell
-    --      signcolumn = "yes", -- sets vim.opt.signcolumn to yes
-    --      wrap = false, -- sets vim.opt.wrap
-    --    },
-    --    g = { -- vim.g.<key>
-    --      -- configure global vim variables (vim.g)
-    --      -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
-    --      -- This can be found in the `lua/lazy_setup.lua` file
-    --    },
-    --  },
+    -- vim options can be configured here
+    options = {
+      opt = { -- vim.opt.<key>
+        -- Set completion to longest common match, then list, then cycle
+        -- Note that lowercase matches won't complete if there's a similar uppercase option.
+        -- This is because of smartcase, but we can't disable that just for command matching.
+        -- Note that for these to work, blink must be disabled for commands.
+        wildmode = "longest:list,full",
+        wildoptions = "tagfile", -- remove "pum" to avoid popup menu and use native wildmenu
+        --      relativenumber = true, -- sets vim.opt.relativenumber
+        --      number = true, -- sets vim.opt.number
+        --      spell = false, -- sets vim.opt.spell
+        --      signcolumn = "yes", -- sets vim.opt.signcolumn to yes
+        --      wrap = false, -- sets vim.opt.wrap
+      },
+      --    g = { -- vim.g.<key>
+      --      -- configure global vim variables (vim.g)
+      --      -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
+      --      -- This can be found in the `lua/lazy_setup.lua` file
+      --    },
+    },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
