@@ -121,6 +121,12 @@ export EDITOR='vim'
 # Defaults to $EDITOR if unset.
 export ZVM_VI_EDITOR='nvim -c "set wrap"'
 
+# If vim-enhanced is installed, it sets alias vi=vim in /etc/profile.d/vim.sh
+# That script is run by omzsh above.
+# We want vi=nvim to be set via alternatives system.
+# So we remove that alias to vim if it exists.
+(( ${+aliases[vi]} )) && unalias vi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
