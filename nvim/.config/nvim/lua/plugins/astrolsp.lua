@@ -55,7 +55,9 @@ return {
           -- to discover builtin system include paths
           "--query-driver="
             .. vim.fn.expand "~"
-            .. "/.platformio/packages/*/bin/arm-*-eabi-g*",
+            .. "/.platformio/packages/*/bin/arm-*-eabi-g*,"
+            .. vim.fn.getcwd()
+            .. "/toolchain/*/bin/arm-*-eabi-g*",
           -- Here's an alternate convenient option, but it's unsafe.
           -- Vulnerable to opening any files with vim in a repo that contains a
           -- malicious compile_commands.json and binary.
