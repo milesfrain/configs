@@ -2,27 +2,44 @@
 
 set -xe
 
-if [ $(uname -m) = x86_64 ]; then
-  # Install latest appimage
-  NVIM_PATH=~/software/nvim.appimage
-  NVIM_DIR=$(dirname $NVIM_PATH)
-  mkdir -p $NVIM_DIR
-  # Grabbing latest can result in backwards compatability issues
-  # wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage -O $NVIM_DIR/nvim.appimage
-  wget https://github.com/neovim/neovim/releases/download/v0.10.2/nvim.appimage -O $NVIM_DIR/nvim.appimage
-  chmod u+x $NVIM_PATH
-  sudo update-alternatives --install /usr/bin/ex ex "${NVIM_PATH}" 110
-  sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
-  sudo update-alternatives --install /usr/bin/view view "${NVIM_PATH}" 110
-  sudo update-alternatives --install /usr/bin/nvim nvim "${NVIM_PATH}" 110
-  sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${NVIM_PATH}" 110
-else
-  # Install old version, but should be fine.
-  sudo apt install -y neovim
-  # This should automatically set up vi and vim alternatives.
-  # Might need old vim and vi to be uninstaled.
-  # Todo - could add a check and an error
-fi
+case "$(uname -s)" in
+  Linux)
+    nvim_os="linux"
+    nvim_ext="appimage"
+    ;;
+  *)
+    echo "Unsupported OS: $(uname -s)" >&2
+    exit 1
+    ;;
+esac
+
+case "$(uname -m)" in
+  x86_64)
+    nvim_arch="x86_64"
+    ;;
+  aarch64|arm64)
+    nvim_arch="arm64"
+    ;;
+  *)
+    echo "Unsupported architecture: $(uname -m)" >&2
+    exit 1
+    ;;
+esac
+
+# Install latest supported release asset for this platform.
+NVIM_VERSION="v0.12.0"
+NVIM_PATH="$HOME/software/nvim.appimage"
+NVIM_DIR=$(dirname "$NVIM_PATH")
+NVIM_ASSET="nvim-${nvim_os}-${nvim_arch}.${nvim_ext}"
+
+mkdir -p "$NVIM_DIR"
+wget "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${NVIM_ASSET}" -O "$NVIM_PATH"
+chmod u+x "$NVIM_PATH"
+sudo update-alternatives --install /usr/bin/ex ex "${NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/view view "${NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/nvim nvim "${NVIM_PATH}" 110
+sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${NVIM_PATH}" 110
 
 # Setup astrovim
 # This is all tracked in user config, but can use this command to start fresh.
