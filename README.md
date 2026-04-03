@@ -7,7 +7,7 @@ https://github.com/milesfrain/configs/tree/basic
 
 Clone this repo and run the `core` setup script:
 ```
-git clone https://github.com/milesfrain/configs.git ~/configs
+git clone --recursive https://github.com/milesfrain/configs.git ~/configs
 cd ~/configs
 setup/core.sh
 ```
@@ -19,6 +19,7 @@ chsh -s $(which zsh)
 
 You can then run additional setup scripts depending on what you want to install:
 ```
+setup/vim.sh
 setup/apps.sh
 setup/gui.sh
 setup/laptop.sh
