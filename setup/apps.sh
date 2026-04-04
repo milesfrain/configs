@@ -19,11 +19,16 @@ else
   sudo $APT update
   sudo $APT install -y \
     build-essential \
+    libclang-devel \
+    lm-sensors \
+    python-is-python3
+
+  # These are not ubuntu-specific, but are already included in fedora
+  sudo $APT install -y \
+    clang \
     wget \
     git \
     htop \
-    lm-sensors \
-    python-is-python3 \
     tree
 fi
 
