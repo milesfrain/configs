@@ -19,7 +19,7 @@ else
   sudo $APT update
   sudo $APT install -y \
     build-essential \
-    libclang-devel \
+    libclang-dev \
     lm-sensors \
     python-is-python3
 
