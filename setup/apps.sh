@@ -34,6 +34,7 @@ fi
 
 # common
 sudo $APT install -y \
+  btop \
   cmake \
   minicom \
   units \
