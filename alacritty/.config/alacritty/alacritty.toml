@@ -27,6 +27,7 @@ family = "MesloLGSDZ Nerd Font"
 
 [window]
 decorations = "none"
+dynamic_title = true
 
 [keyboard]
 bindings = [
