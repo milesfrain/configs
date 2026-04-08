@@ -150,11 +150,6 @@ function has () {
     type $1 > /dev/null
 }
 
-# Checks if program is running
-function running () {
-    pgrep $1 > /dev/null
-}
-
 # Convenience alias for opening files with assigned GUI. For example:
 # o some_document.pdf
 if has xdg-open; then alias o='xdg-open'; fi
@@ -165,14 +160,6 @@ alias text='gnome-text-editor'
 if has rg; then alias rga='rg --no-ignore --hidden'; fi
 
 if has libreoffice; then alias calc='libreoffice --calc'; fi
-
-# Map capslock key to escape
-# Only reconfigure if applications exist and xcape is not already running
-if has setxkbmap && has xcape && ! running xcape; then setxkbmap -option ctrl:nocaps; xcape -e 'Control_L=Escape'; fi
-
-# Keyboard repeat rate
-# Do not run if there is no active display. That would spam an error.
-if has xset && test "$DISPLAY"; then xset r rate 200 50; fi
 
 alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'

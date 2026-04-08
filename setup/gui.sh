@@ -4,18 +4,50 @@
 
 set -xe
 
-sudo apt update
-sudo apt upgrade
+# Use apt by default (debian/ubuntu), or dnf for fedora
+PKG=apt
+if command -v dnf &> /dev/null; then
+  PKG=dnf
+fi
+
+sudo $PKG update
 
 # Fedora only needs meld and alacritty
 
 # gui
-sudo apt install -y \
+sudo $PKG install -y \
   meld \
   peek \
   redshift \
-  xcape \
   xclip
+
+if ! sudo $PKG install -y keyd; then
+  # Build keyd from source when the distro package is unavailable.
+
+  mkdir -p "$HOME/software"
+
+  rm -rf "$HOME/software/keyd"
+  git clone https://github.com/rvaiya/keyd.git "$HOME/software/keyd"
+
+  make -C "$HOME/software/keyd"
+  sudo make -C "$HOME/software/keyd" install
+fi
+
+sudo mkdir -p /etc/keyd
+sudo tee /etc/keyd/default.conf > /dev/null <<'EOF'
+[ids]
+*
+
+[main]
+capslock = overload(control, esc)
+EOF
+
+sudo systemctl enable --now keyd
+
+if command -v gsettings &> /dev/null ; then
+  gsettings set org.gnome.desktop.peripherals.keyboard delay 200
+  gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 20
+fi
 
 # Do not rely on snap with pop-os
 
