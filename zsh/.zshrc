@@ -195,6 +195,24 @@ function rgless() {
   rg --color always $1 | less -R
 }
 
+# sd, but for entire directory
+rgsd() {
+  if (( $# < 2 )); then
+    echo "usage: rgsd [sd-flags] FIND REPLACE" >&2
+    return 2
+  fi
+  # The FIND arg is the second-to-last positional.
+  local find="${@[-2]}"
+  local rg_flags=()
+  # If -F/--fixed-strings is among args, pass it to rg too for a literal search.
+  for a in "$@"; do
+    case "$a" in
+      -F|--fixed-strings) rg_flags+=(-F) ;;
+    esac
+  done
+  rg -0 -l "${rg_flags[@]}" -- "$find" | xargs -0 -r sd "$@"
+}
+
 function epoch () {
     date --reference=$1 +%s
 }
