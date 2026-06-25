@@ -139,6 +139,10 @@ export ZVM_VI_EDITOR='nvim -c "set wrap"'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Setup jj dynamic completions
+# https://docs.jj-vcs.dev/latest/install-and-setup/#dynamic-completions
+source <(COMPLETE=zsh jj)
+
 # Added by Nix installer
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 
