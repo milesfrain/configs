@@ -164,6 +164,50 @@ if has libreoffice; then alias calc='libreoffice --calc'; fi
 alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'
 alias notap='~/configs/scripts/yubikey-enable.sh foo'
+
+function ta_schema_dir() {
+  echo "$HOME/.local/share/gnome-shell/extensions/tiling-assistant@leleat-on-github/schemas"
+}
+
+function ta_set() {
+  gsettings --schemadir "$(ta_schema_dir)" set org.gnome.shell.extensions.tiling-assistant "$@"
+}
+
+function ta_disable_native_tiling() {
+  gsettings set org.gnome.mutter.keybindings toggle-tiled-left "@as []"
+  gsettings set org.gnome.mutter.keybindings toggle-tiled-right "@as []"
+}
+
+# Tiling Assistant shortcuts for a vertical monitor:
+# Super+Left => top half, Super+Right => bottom half.
+function ta-vertical() {
+  ta_disable_native_tiling
+  ta_set tile-top-half "['<Super>Left','<Super>KP_8']"
+  ta_set tile-bottom-half "['<Super>Right','<Super>KP_2']"
+  ta_set tile-left-half "['<Super>KP_4']"
+  ta_set tile-right-half "['<Super>KP_6']"
+  ta_set enable-tiling-popup false
+}
+
+# Tiling Assistant shortcuts for a horizontal monitor:
+# Super+Left => left half, Super+Right => right half.
+function ta-horizontal() {
+  ta_disable_native_tiling
+  ta_set tile-top-half "['<Super>KP_8']"
+  ta_set tile-bottom-half "['<Super>KP_2']"
+  ta_set tile-left-half "['<Super>Left','<Super>KP_4']"
+  ta_set tile-right-half "['<Super>Right','<Super>KP_6']"
+  ta_set enable-tiling-popup false
+}
+
+function ta-popup() {
+  case "$1" in
+    on|true|1) ta_set enable-tiling-popup true ;;
+    off|false|0) ta_set enable-tiling-popup false ;;
+    *) echo "usage: ta-popup on|off" >&2; return 2 ;;
+  esac
+}
+
 # rebase onto the default branch (e.g. main, master, develop, etc.)
 function grod () {
     default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
