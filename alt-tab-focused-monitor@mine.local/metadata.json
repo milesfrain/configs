@@ -1,0 +1,6 @@
+{
+  "uuid": "alt-tab-focused-monitor@mine.local",
+  "name": "Alt-Tab Focused Monitor",
+  "description": "Show the GNOME Alt-Tab switcher on the monitor containing the focused window.",
+  "shell-version": ["48"]
+}
