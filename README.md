@@ -82,7 +82,7 @@ Key | Action
 Key | Action
 -|-
 `?` | Show all bindings
-`r` | Reload configs
+`r` | Reload configs (note config settings are cumulative until tmux is restarted)
 `[` | Activate copy mode (freezes scrollback and allows navigation with VIM bindings). Start copy selection with `space` and finalize copy with `enter` (which also resumes scrollback).
 `]` | Paste previously-copied text
 `:` | Open `tmux` command prompt. Useful for stuff like (`set mouse on` and `setw synchronize-panes on`).
