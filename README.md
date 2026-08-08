@@ -3,6 +3,11 @@
 See the `basic` branch:
 https://github.com/milesfrain/configs/tree/basic
 
+### For a basic setup with most of these tmux customizations applied:
+
+See the `basic-custom-tmux` branch:
+https://github.com/milesfrain/configs/tree/basic-custom-tmux
+
 ### For a more fully-featured setup:
 
 Clone this repo and run the `core` setup script:
