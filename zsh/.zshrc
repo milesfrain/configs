@@ -139,10 +139,6 @@ export ZVM_VI_EDITOR='nvim -c "set wrap"'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Setup jj dynamic completions
-# https://docs.jj-vcs.dev/latest/install-and-setup/#dynamic-completions
-source <(COMPLETE=zsh jj)
-
 # Added by Nix installer
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 
@@ -164,6 +160,10 @@ alias text='gnome-text-editor'
 if has rg; then alias rga='rg --no-ignore --hidden'; fi
 
 if has libreoffice; then alias calc='libreoffice --calc'; fi
+
+# Setup jj dynamic completions
+# https://docs.jj-vcs.dev/latest/install-and-setup/#dynamic-completions
+if has jj; then source <(COMPLETE=zsh jj); fi
 
 alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'
