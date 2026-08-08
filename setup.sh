@@ -12,6 +12,7 @@ sudo apt install -y \
   zsh
 
 stow tmux
+./get-tmux-rst.sh
 
 # Use our linked .zshrc, rather than the one provied by oh-my-zsh
 stow zsh

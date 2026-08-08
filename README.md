@@ -1,11 +1,11 @@
-This `basic` branch just includes a small config for `zsh`, `fzf`, and `tmux`.
+This `basic-custom-tmux` branch includes a small config for `zsh`, `fzf`, and `tmux`, plus some additional tmux customizations.
 Configs are tracked using `stow`.
 
 ## Installation:
 
-Clone the `basic` branch of this repo and run the setup script:
+Clone the `basic-custom-tmux` branch of this repo and run the setup script:
 ```
-git clone https://github.com/milesfrain/configs.git --depth=1 --branch basic ~/configs
+git clone https://github.com/milesfrain/configs.git --depth=1 --branch basic-custom-tmux ~/configs
 cd ~/configs
 ./setup.sh
 ```
@@ -36,18 +36,12 @@ Some features of this configuration are:
 
 ### tmux
 
-This section summarizes usage with default `tmux` keybindings.
-
-Here's a more detailed guide:
-https://github.com/tmux/tmux/wiki/Getting-Started
-
-For more opinionated tmux bindings, see the main branch:
-https://github.com/milesfrain/configs
+The [official tmux guide](https://github.com/tmux/tmux/wiki/Getting-Started) is extensive and covers default usage, but many of those defaults are overriden by this config's [.tmux.conf](tmux/.tmux.conf). So here in this section we summarize the most important usage notes with our customized config.
 
 #### Prefix
-The "prefix" or "leader" is the key sequence that the following commands start with. `ctrl-b` is the default.
+The "prefix" is the key sequence that most commands start with. This config uses `ctrl-t` (and disables the inconvenient default prefix of `ctrl-b`).
 
-For example, to create a new window, press `ctrl-b`, release, then type `c`.
+For example, to create a new window, press `ctrl-t`, release, then type `c`.
 
 #### Creating Windows and Panes
 Note that "windows" contain "panes". A new window initially contains exactly one pane.
@@ -55,27 +49,22 @@ Note that "windows" contain "panes". A new window initially contains exactly one
 Key|Action
 -|-
 `c`|Create new **window**
-`"`|Split **pane** vertically
-`%`|Split **pane** horizontally
+`\`|Split **pane** vertically
+`-`|Split **pane** horizontally
 
 You can delete panes by exiting that shell with `exit` or `ctrl-d`. The window is deleted when the last pane within that window is deleted.
 
-#### Navigating Windows
+#### Navigating Windows and Panes
 
-Key | Action
--|-
-`p`/`n` | Go to previous/next window
-`<number>` | Go to numbered window
+These commands are available in a prefix-free version with arrows and a VIM-style version.
 
-#### Navigating Panes
-
-Key | Action
--|-
-`o` | Go to next pane
-`q <number>` | Go to numbered pane
-`<arrow>` | Go to neighboring pane
-`ctrl-<arrow>` | Resize pane
-`z` | Toggle pane zoom
+Key (no prefix) | Key (with prefix) | Action
+-|-|-
+`alt-arrow` (left/right) | `p`/`n` | Go to previous/next **window**
+| | `<number>` | Go to numbered **window**
+`ctrl-arrow` | `h`/`j`/`k`/`l` | Go to neighboring **pane**
+`shift-arrow` | `shift-h/j/k/l` | Resize **pane**
+| | `z` | Toggle **pane** zoom
 
 #### Other Commands
 
