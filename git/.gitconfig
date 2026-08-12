@@ -23,6 +23,8 @@
 	one = log --oneline --decorate
 	uno = status -uno
 	all = log --branches --remotes --tags --decorate --oneline --graph
+	# Show graph relationship between two branches - defaults to main
+  graph-with = "!f() { git log --graph --oneline --decorate --boundary HEAD...\"${1:-main}\"; }; f"
 	dog = log --decorate --oneline --graph
 	date = branch --sort -committerdate --format='%(committerdate:relative)%09%(refname:short)'
 [merge]
