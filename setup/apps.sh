@@ -36,6 +36,7 @@ fi
 sudo $APT install -y \
   btop \
   cmake \
+  curl \
   minicom \
   units \
   can-utils \
