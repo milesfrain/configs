@@ -107,7 +107,7 @@ set -x # re-enable tracing
 #   sensors
 
 # Install rust
-wget -qO- https://sh.rustup.rs | sh
+wget -qO- https://sh.rustup.rs | sh -s -- -y
 
 # Make rust temporarily available in the current shell so the following commands work
 . "$HOME/.cargo/env"
