@@ -109,7 +109,7 @@ Key | Action
 
 #### SSH Notes
 
-Use a fresh terminal (without tmux running) into ssh to a device. That avoids problems with nested tmux sessions.
+Use a fresh terminal (without tmux running) to ssh into a device. That avoids problems with nested tmux sessions.
 
 If you lose your ssh connection (for example by accidentially closing the terminal) your tmux instance will still be running on that device. You can simply reconnect over ssh and run `tmux attach` to jump back into your tmux session.
 
