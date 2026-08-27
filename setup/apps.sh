@@ -43,6 +43,8 @@ sudo $APT install -y \
   pv \
   python3-pip \
   stress-ng \
+  sysbench \
+  ranger \
   ripgrep \
   socat
 
