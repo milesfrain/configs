@@ -69,7 +69,7 @@ Some features of this configuration are:
 The [official tmux guide](https://github.com/tmux/tmux/wiki/Getting-Started) is extensive and covers default usage, but many of those defaults are overriden by this config's [.tmux.conf](tmux/.tmux.conf). So here in this section we summarize the most important usage notes with our customized config.
 
 #### Prefix
-The "prefix" is the key sequence that most commands start with. This config uses `ctrl-t` (and disables the inconvenient default prefix of `ctrl-b`).
+The "prefix" is the key sequence that most commands start with. The default prefix is `ctrl-b`. This config adds `ctrl-t` as another prefix option.
 
 For example, to create a new window, press `ctrl-t`, release, then type `c`.
 
