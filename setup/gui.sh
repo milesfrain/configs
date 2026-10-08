@@ -16,6 +16,7 @@ sudo $PKG update
 
 # gui
 sudo $PKG install -y \
+  alacritty \
   meld \
   peek \
   redshift \
