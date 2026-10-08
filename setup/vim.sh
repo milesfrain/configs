@@ -28,18 +28,21 @@ esac
 
 # Install latest supported release asset for this platform.
 NVIM_VERSION="v0.12.0"
-NVIM_PATH="$HOME/software/nvim.appimage"
-NVIM_DIR=$(dirname "$NVIM_PATH")
+NVIM_PATH="/usr/local/bin/nvim"
 NVIM_ASSET="nvim-${nvim_os}-${nvim_arch}.${nvim_ext}"
 
-mkdir -p "$NVIM_DIR"
-wget "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${NVIM_ASSET}" -O "$NVIM_PATH"
-chmod u+x "$NVIM_PATH"
-sudo update-alternatives --install /usr/bin/ex ex "${NVIM_PATH}" 110
-sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
-sudo update-alternatives --install /usr/bin/view view "${NVIM_PATH}" 110
-sudo update-alternatives --install /usr/bin/nvim nvim "${NVIM_PATH}" 110
-sudo update-alternatives --install /usr/bin/vimdiff vimdiff "${NVIM_PATH}" 110
+# Finish downloading before replacing the installed executable.
+nvim_download=$(mktemp)
+trap 'rm -f "$nvim_download"' 0
+trap 'exit 1' HUP INT TERM
+wget "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${NVIM_ASSET}" -O "$nvim_download"
+sudo install -d -m 0755 /usr/local/bin
+sudo install -o root -g root -m 0755 "$nvim_download" "$NVIM_PATH"
+
+# Register shared candidates; preserve manually selected alternatives.
+for name in ex vi view nvim vimdiff; do
+  sudo update-alternatives --install "/usr/bin/$name" "$name" "$NVIM_PATH" 110
+done
 
 # Setup astrovim
 # This is all tracked in user config, but can use this command to start fresh.
