@@ -28,6 +28,9 @@ setup/apps.sh
 setup/vim.sh # needs tree-sitter-cli, installed in apps.sh above. Start new terminal so npm is picked-up.
 setup/gui.sh
 setup/laptop.sh
+setup/docker.sh
+setup/ssh-host.sh
+setup/ssh-keys.sh
 ```
 
 You may need to install additional fonts on your local machine:
