@@ -95,7 +95,7 @@ plugins=(
 
 # Fix compatibility issues with fzf and vi-mode (e.g. reverse search rebinding)
 # zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
-function zvm_after_init() {
+zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
 
@@ -146,7 +146,7 @@ if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile
 if [ -e ~/.keys ]; then . ~/.keys; fi
 
 # Checks if program exists
-function has () {
+has () {
     type $1 > /dev/null
 }
 
@@ -169,22 +169,22 @@ alias b='~/configs/scripts/bits.py'
 alias tap='~/configs/scripts/yubikey-enable.sh'
 alias notap='~/configs/scripts/yubikey-enable.sh foo'
 
-function ta_schema_dir() {
+ta_schema_dir() {
   echo "$HOME/.local/share/gnome-shell/extensions/tiling-assistant@leleat-on-github/schemas"
 }
 
-function ta_set() {
+ta_set() {
   gsettings --schemadir "$(ta_schema_dir)" set org.gnome.shell.extensions.tiling-assistant "$@"
 }
 
-function ta_disable_native_tiling() {
+ta_disable_native_tiling() {
   gsettings set org.gnome.mutter.keybindings toggle-tiled-left "@as []"
   gsettings set org.gnome.mutter.keybindings toggle-tiled-right "@as []"
 }
 
 # Tiling Assistant shortcuts for a vertical monitor:
 # Super+Left => top half, Super+Right => bottom half.
-function ta-vertical() {
+ta-vertical() {
   ta_disable_native_tiling
   ta_set tile-top-half "['<Super>Left','<Super>KP_8']"
   ta_set tile-bottom-half "['<Super>Right','<Super>KP_2']"
@@ -195,7 +195,7 @@ function ta-vertical() {
 
 # Tiling Assistant shortcuts for a horizontal monitor:
 # Super+Left => left half, Super+Right => right half.
-function ta-horizontal() {
+ta-horizontal() {
   ta_disable_native_tiling
   ta_set tile-top-half "['<Super>KP_8']"
   ta_set tile-bottom-half "['<Super>KP_2']"
@@ -204,7 +204,7 @@ function ta-horizontal() {
   ta_set enable-tiling-popup false
 }
 
-function ta-popup() {
+ta-popup() {
   case "$1" in
     on|true|1) ta_set enable-tiling-popup true ;;
     off|false|0) ta_set enable-tiling-popup false ;;
@@ -213,7 +213,7 @@ function ta-popup() {
 }
 
 # rebase onto the default branch (e.g. main, master, develop, etc.)
-function grod () {
+grod () {
     default_branch=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
     common_ancestor=$(git merge-base HEAD $default_branch)
     git rebase --onto $default_branch $common_ancestor
@@ -234,12 +234,12 @@ cargol() {
 
 # Example:
 # rename old new
-function rename_in_files() {
+rename_in_files() {
     rg -F $1 -l | xargs -d '\n' sd $1 $2
 }
 
 # Simple search with colored results piped to less
-function rgless() {
+rgless() {
   rg --color always $1 | less -R
 }
 
@@ -261,12 +261,12 @@ rgsd() {
   rg -0 -l "${rg_flags[@]}" -- "$find" | xargs -0 -r sd "$@"
 }
 
-function epoch () {
+epoch () {
     date --reference=$1 +%s
 }
 
 # https://superuser.com/a/796341
-function remove_line_breaks_from_clipboard() {
+remove_line_breaks_from_clipboard() {
     # Clipboard with -b
     xsel -b | \
         sed 's/\.$/.|/g' | sed 's/^\s*$/|/g' | tr '\n' ' ' | tr '|' '\n' | \
@@ -278,18 +278,18 @@ function remove_line_breaks_from_clipboard() {
         xsel -i
 }
 
-function pipreinstall () {
+pipreinstall () {
      pip install --ignore-installed --no-deps "$@"
 }
 
 # Produces sorted list of duplicated basenames in tree.
 # Useful for finding common files to ignore
-function namecount() {
+namecount() {
     find . -type f -printf "%f\n" | sort | uniq -cd | sort -n
 }
 
 # todo - would be great to sort by size, rather than extension
-function typesize () {
+typesize () {
   ftypes=($(find . -type f | grep -E ".*\.[a-zA-Z0-9]*$" | sed -e 's/.*\(\.[a-zA-Z0-9]*\)$/\1/' | sort | uniq))
 
     for ft in "${ftypes[@]}"
