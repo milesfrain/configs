@@ -299,6 +299,11 @@ typesize () {
     done
 }
 
+pack7z() {
+  local src="${1%/}"
+  7z a "${src}.7z" "$src"
+}
+
 # Run this additional setup script if it exists
 if [ -f $HOME/.zshrc-extra.zsh ]; then source $HOME/.zshrc-extra.zsh; fi
 
