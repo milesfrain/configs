@@ -24,6 +24,10 @@ function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 }
 
+# Disable automatic updates. Manual updates still work by running:
+#   omz update
+zstyle ':omz:update' mode disabled
+
 source $ZSH/oh-my-zsh.sh
 
 # Fix omz slow pasting
